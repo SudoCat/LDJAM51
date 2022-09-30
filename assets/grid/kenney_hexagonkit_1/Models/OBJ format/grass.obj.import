@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/grass.obj-9a48c55c8b8481823112b7c3eb5132af.mesh"
+
+[deps]
+
+files=[ "res://.import/grass.obj-9a48c55c8b8481823112b7c3eb5132af.mesh" ]
+
+source_file="res://assets/grid/kenney_hexagonkit_1/Models/OBJ format/grass.obj"
+dest_files=[ "res://.import/grass.obj-9a48c55c8b8481823112b7c3eb5132af.mesh", "res://.import/grass.obj-9a48c55c8b8481823112b7c3eb5132af.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

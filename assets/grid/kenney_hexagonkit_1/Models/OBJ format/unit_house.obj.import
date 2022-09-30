@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/unit_house.obj-e424813fb2089ad83126e7820019835b.mesh"
+
+[deps]
+
+files=[ "res://.import/unit_house.obj-e424813fb2089ad83126e7820019835b.mesh" ]
+
+source_file="res://assets/grid/kenney_hexagonkit_1/Models/OBJ format/unit_house.obj"
+dest_files=[ "res://.import/unit_house.obj-e424813fb2089ad83126e7820019835b.mesh", "res://.import/unit_house.obj-e424813fb2089ad83126e7820019835b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

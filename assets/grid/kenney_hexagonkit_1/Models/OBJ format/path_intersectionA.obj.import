@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/path_intersectionA.obj-417b8469c0fb848bd9d629ad00284234.mesh"
+
+[deps]
+
+files=[ "res://.import/path_intersectionA.obj-417b8469c0fb848bd9d629ad00284234.mesh" ]
+
+source_file="res://assets/grid/kenney_hexagonkit_1/Models/OBJ format/path_intersectionA.obj"
+dest_files=[ "res://.import/path_intersectionA.obj-417b8469c0fb848bd9d629ad00284234.mesh", "res://.import/path_intersectionA.obj-417b8469c0fb848bd9d629ad00284234.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

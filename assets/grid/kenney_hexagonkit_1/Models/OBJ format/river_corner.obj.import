@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/river_corner.obj-11ac9701fe0b37c3eecab87b12d8d48f.mesh"
+
+[deps]
+
+files=[ "res://.import/river_corner.obj-11ac9701fe0b37c3eecab87b12d8d48f.mesh" ]
+
+source_file="res://assets/grid/kenney_hexagonkit_1/Models/OBJ format/river_corner.obj"
+dest_files=[ "res://.import/river_corner.obj-11ac9701fe0b37c3eecab87b12d8d48f.mesh", "res://.import/river_corner.obj-11ac9701fe0b37c3eecab87b12d8d48f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

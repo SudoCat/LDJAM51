@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/path_corner.obj-d574fe1914f2e4cbeb3c1aa06ef94fa2.mesh"
+
+[deps]
+
+files=[ "res://.import/path_corner.obj-d574fe1914f2e4cbeb3c1aa06ef94fa2.mesh" ]
+
+source_file="res://assets/grid/kenney_hexagonkit_1/Models/OBJ format/path_corner.obj"
+dest_files=[ "res://.import/path_corner.obj-d574fe1914f2e4cbeb3c1aa06ef94fa2.mesh", "res://.import/path_corner.obj-d574fe1914f2e4cbeb3c1aa06ef94fa2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
