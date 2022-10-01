@@ -18,20 +18,21 @@ func _ready():
 	innerRadius = outerRadius * 0.866025404
 	
 	var i = 0
-	for z in range(height):
-		for x in range(width):
-			create_plot(x, z, i)
+	var rows = height + (height + 1) % 2
+	for z in range(rows):
+		var distance_from_center = abs(z - ceil(rows / 2))
+		var colums = width - distance_from_center;
+		for x in range(colums):
+			create_plot(x, z, i, distance_from_center / 2)
 			i += 1
 			
-func create_plot(x,z,i):
+func create_plot(x,z,i,offset):
 	var plot = grass.instance()
 	var mesh = plot.find_node("grass") as MeshInstance
 	outerRadius = mesh.get_aabb().size.z / 2
 	innerRadius = mesh.get_aabb().size.x / 2
 	var position = Vector3(0, 0, 0)
-	position.x = x * (innerRadius * 1);
-	position.x = (x + z * 0.5) * (innerRadius * 2);
-	position.x = (x + z * 0.5 - z / 2) * (innerRadius * 2);
+	position.x = (x + offset) * (innerRadius * 2)
 	position.y = 0;
 	position.z = z * (outerRadius * 1.5);
 	
