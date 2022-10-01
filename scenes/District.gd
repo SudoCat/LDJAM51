@@ -15,8 +15,6 @@ var grass = preload("res://scenes/grid/grass.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	innerRadius = outerRadius * 0.866025404
-	
 	var i = 0
 	var rows = height + (height + 1) % 2
 	for z in range(rows):
@@ -29,7 +27,7 @@ func _ready():
 func create_plot(x,z,i,offset):
 	var plot = grass.instance()
 	var mesh = plot.find_node("grass") as MeshInstance
-	var size = mesh.get_aabb().size
+	var size = plot.transform.xform(mesh.get_aabb()).size
 	outerRadius = size.z / 2
 	innerRadius = size.x / 2
 	var position = Vector3(0, 0, 0)

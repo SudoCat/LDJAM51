@@ -1,24 +1,40 @@
 extends Spatial
 class_name Plot
 
-var selected = false;
+var selected = false
+var body: StaticBody
+var mesh: MeshInstance
+var mat: SpatialMaterial
+var base_color: Color
+export var highlight_color: Color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var body = get_node("StaticBody")
+	mesh = $tmpParent/grass
+	body = $StaticBody
+	mat = mesh.get_surface_material(0)
+	base_color = mat.albedo_color
 	body.connect("mouse_entered", self, "_on_Body_mouse_entered")
 	body.connect("mouse_exited", self, "_on_Body_mouse_exited")
 	body.connect("input_event", self, "_on_Body_input_event")
 
 func _on_Body_mouse_entered():
 	if !selected:
-		self.translate(Vector3(0, 0.2, 0))
+		focus()
 	
 func _on_Body_mouse_exited():
 	if !selected:
-		self.translate(Vector3(0, -0.2, 0))
+		blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selected = !selected
+			selected = !selected;
+			
+func focus():
+	translate(Vector3(0, 0.2, 0))
+	mat.albedo_color = highlight_color
+
+func blur():
+	translate(Vector3(0, -0.2, 0))
+	mat.albedo_color = base_color
