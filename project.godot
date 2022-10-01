@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Spatial",
+"class": "Plot",
+"language": "GDScript",
+"path": "res://scenes/grid/Plot.gd"
+} ]
+_global_script_class_icons={
+"Plot": ""
+}
+
 [application]
 
 config/name="Ldjam 51"
