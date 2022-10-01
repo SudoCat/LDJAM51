@@ -12,7 +12,7 @@ script = ExtResource( 3 )
 script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 14.9778, 10, 12.8963 )
+transform = Transform( -0.707107, -0.541675, 0.45452, 0, 0.642788, 0.766044, -0.707107, 0.541675, -0.45452, 15.3177, 10, -3.29369 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
