@@ -6,8 +6,6 @@ var selected = false
 var tween: Tween
 var body: StaticBody
 var mesh: MeshInstance
-var mat: SpatialMaterial
-var base_color: Color
 var pos: Vector3
 var place
 export var multiplier = 1.2
@@ -16,15 +14,15 @@ export var multiplier = 1.2
 func _ready():
 	game = get_node("/root/Game")
 	tween = $Tween
-	mesh = $tmpParent/grass
+	mesh = $grass/tmpParent/grass
 	body = $StaticBody
-	mat = mesh.get_surface_material(1).duplicate()
-	mesh.set_surface_material(1, mat)
-	base_color = mat.albedo_color
 	pos = transform.origin
 	body.connect("mouse_entered", self, "_on_Body_mouse_entered")
 	body.connect("mouse_exited", self, "_on_Body_mouse_exited")
 	body.connect("input_event", self, "_on_Body_input_event")
+	
+func get_xform_aabb():
+	return $grass.transform.xform($grass/tmpParent/grass.get_aabb())
 
 func _on_Body_mouse_entered():
 	if game.player.selected != self:

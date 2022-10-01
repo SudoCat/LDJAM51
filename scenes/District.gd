@@ -5,7 +5,7 @@ var innerRadius = 0
 var width = 7
 var height = 7
 var plots = []
-var grass = preload("res://scenes/grid/grass.tscn")
+var plot_scene = preload("res://scenes/grid/Plot.tscn")
 
 func _ready():
 	var i = 0
@@ -18,9 +18,8 @@ func _ready():
 			i += 1
 			
 func create_plot(x,z,_i,offset):
-	var plot = grass.instance()
-	var mesh = plot.find_node("grass") as MeshInstance
-	var size = plot.transform.xform(mesh.get_aabb()).size
+	var plot = plot_scene.instance() as Plot
+	var size = plot.get_xform_aabb().size
 	outerRadius = size.z / 2
 	innerRadius = size.x / 2
 	var position = Vector3(0, 0, 0)
