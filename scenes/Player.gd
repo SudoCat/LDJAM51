@@ -6,9 +6,9 @@ class_name Player
 # var b = "text"
 var ray_length = 10
 var selected
-var actor: Actor
+var actor
 
-func set_actor(p_actor: Actor):
+func set_actor(p_actor):
 	actor = p_actor
 
 func select_plot(plot):

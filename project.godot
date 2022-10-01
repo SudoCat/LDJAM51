@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Actor",
 "language": "GDScript",
-"path": "res://data_types/actor.gd"
+"path": "res://resource_types/actor.gd"
 }, {
 "base": "Resource",
 "class": "Card",
 "language": "GDScript",
-"path": "res://data_types/card.gd"
+"path": "res://resource_types/card.gd"
 }, {
 "base": "TextureButton",
 "class": "CardButton",

@@ -1,7 +1,7 @@
 extends Spatial
 class_name Plot
 
-var game: Game
+var game
 var selected = false
 var tween: Tween
 var body: StaticBody

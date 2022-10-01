@@ -5,8 +5,8 @@ class_name Game
 # var a = 2
 # var b = "text"
 var actors = []
-var player: Player;
-var hand: HandUI;
+var player
+var hand
 
 var actor: Actor = load("res://actors/default.tres")
 
