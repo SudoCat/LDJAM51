@@ -24,7 +24,7 @@ func _ready():
 			create_plot(x, z, i, distance_from_center / 2)
 			i += 1
 			
-func create_plot(x,z,i,offset):
+func create_plot(x,z,_i,offset):
 	var plot = grass.instance()
 	var mesh = plot.find_node("grass") as MeshInstance
 	var size = plot.transform.xform(mesh.get_aabb()).size

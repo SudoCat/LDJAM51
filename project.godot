@@ -9,12 +9,48 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://data_types/actor.gd"
+}, {
+"base": "Resource",
+"class": "Card",
+"language": "GDScript",
+"path": "res://data_types/card.gd"
+}, {
+"base": "TextureButton",
+"class": "CardButton",
+"language": "GDScript",
+"path": "res://scenes/card_button.gd"
+}, {
+"base": "Spatial",
+"class": "Game",
+"language": "GDScript",
+"path": "res://scenes/Game.gd"
+}, {
+"base": "Panel",
+"class": "HandUI",
+"language": "GDScript",
+"path": "res://scenes/Hand.gd"
+}, {
+"base": "Spatial",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scenes/Player.gd"
+}, {
 "base": "Spatial",
 "class": "Plot",
 "language": "GDScript",
 "path": "res://scenes/grid/Plot.gd"
 } ]
 _global_script_class_icons={
+"Actor": "",
+"Card": "",
+"CardButton": "",
+"Game": "",
+"HandUI": "",
+"Player": "",
 "Plot": ""
 }
 
@@ -23,6 +59,13 @@ _global_script_class_icons={
 config/name="Ldjam 51"
 run/main_scene="res://scenes/grid.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 

@@ -1,6 +1,7 @@
 extends Spatial
 class_name Plot
 
+var game: Game
 var selected = false
 var tween: Tween
 var body: StaticBody
@@ -8,10 +9,12 @@ var mesh: MeshInstance
 var mat: SpatialMaterial
 var base_color: Color
 var pos: Vector3
+var place
 export var multiplier = 1.2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	game = get_node("/root/Game")
 	tween = $Tween
 	mesh = $tmpParent/grass
 	body = $StaticBody
@@ -24,17 +27,17 @@ func _ready():
 	body.connect("input_event", self, "_on_Body_input_event")
 
 func _on_Body_mouse_entered():
-	if !selected:
+	if game.player.selected != self:
 		focus()
 	
 func _on_Body_mouse_exited():
-	if !selected:
+	if game.player.selected != self:
 		blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			selected = !selected;
+			game.player.select_plot(self)
 			
 func focus():
 	tween.interpolate_property(
@@ -55,3 +58,10 @@ func blur():
 	tween.start()
 	mesh.get_active_material(0).albedo_color /= multiplier
 	mesh.get_active_material(1).albedo_color /= multiplier
+	
+func build(card: Card):
+	var instance = card.building.instnace()
+	add_child(instance)
+
+func claimed():
+	return place != null

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Hand.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Hand" type="Panel" parent="."]
+margin_right = 360.0
+margin_bottom = 1080.0
+script = ExtResource( 2 )
+
+[node name="VFlowContainer" type="VFlowContainer" parent="Hand"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 340.0
+margin_bottom = 1100.0
+
+[node name="Timer" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -220.0
+margin_bottom = 140.0
+
+[node name="Turns" type="Panel" parent="."]
+margin_left = 360.0
+margin_top = 900.0
+margin_right = 1920.0
+margin_bottom = 1080.0
