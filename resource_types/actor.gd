@@ -14,6 +14,7 @@ func _init(p_name = "card", p_image = null, p_deck = []):
 
 func shuffle():
 	active_deck = deck.duplicate()
+	randomize()
 	active_deck.shuffle()
 
 func draw():

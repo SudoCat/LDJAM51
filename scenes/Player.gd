@@ -13,13 +13,12 @@ func set_actor(p_actor):
 
 func select_plot(plot):
 	if selected:
-		selected.selected = false
 		selected.blur()
 		if selected == plot:
 			selected = null
 			return
 
 	if (plot):
-		plot.selected = true
+		plot.focus()
 
 	selected = plot
