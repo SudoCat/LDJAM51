@@ -62,7 +62,7 @@ func build(card: Card):
 	add_child(instance)
 	var mesh: MeshInstance = instance.get_child(0)
 	var offset = mesh.transform.xform(mesh.get_aabb()).size.y / 2
-	var position = offset + 0.2
+	var position = offset + 0.4
 	instance.translate(Vector3(0, position, 0))
 
 func claimed():
