@@ -10,5 +10,6 @@ func set_card(p_card: Card):
 	self.connect("pressed", self, "_on_Self_pressed")
 	
 func _on_Self_pressed():
-	if game.player.selected && !game.player.selected.claimed():
-		game.player.selected.build(card)
+	var plot: Plot = game.player.selected
+	if plot && !plot.claimed():
+		plot.build(card)
