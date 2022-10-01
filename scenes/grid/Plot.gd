@@ -60,8 +60,12 @@ func blur():
 	mesh.get_active_material(1).albedo_color /= multiplier
 	
 func build(card: Card):
-	var instance = card.building.instance()
+	var instance: Spatial = card.building.instance()
 	add_child(instance)
+	var mesh: MeshInstance = instance.get_child(0)
+	var offset = mesh.transform.xform(mesh.get_aabb()).size.y / 2
+	var position = offset + 0.2
+	instance.translate(Vector3(0, position, 0))
 
 func claimed():
 	return place != null
