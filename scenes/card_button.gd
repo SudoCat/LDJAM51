@@ -2,7 +2,7 @@ extends TextureButton
 class_name CardButton
 
 var card: Card
-onready var game: Game = get_node("/root/Game")
+onready var game = get_node("/root/Game")
 
 func set_card(p_card: Card):
 	card = p_card

@@ -60,7 +60,7 @@ func blur():
 	mesh.get_active_material(1).albedo_color /= multiplier
 	
 func build(card: Card):
-	var instance = card.building.instnace()
+	var instance = card.building.instance()
 	add_child(instance)
 
 func claimed():
