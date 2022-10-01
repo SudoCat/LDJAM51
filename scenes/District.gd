@@ -2,8 +2,8 @@ extends Node
 
 var outerRadius = 1
 var innerRadius = 0
-var width = 6
-var height = 6
+var width = 7
+var height = 7
 
 
 # Declare member variables here. Examples:
@@ -29,8 +29,9 @@ func _ready():
 func create_plot(x,z,i,offset):
 	var plot = grass.instance()
 	var mesh = plot.find_node("grass") as MeshInstance
-	outerRadius = mesh.get_aabb().size.z / 2
-	innerRadius = mesh.get_aabb().size.x / 2
+	var size = mesh.get_aabb().size
+	outerRadius = size.z / 2
+	innerRadius = size.x / 2
 	var position = Vector3(0, 0, 0)
 	position.x = (x + offset) * (innerRadius * 2)
 	position.y = 0;
