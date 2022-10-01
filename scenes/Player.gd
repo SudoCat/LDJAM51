@@ -19,5 +19,7 @@ func select_plot(plot):
 			selected = null
 			return
 
-	plot.selected = true
+	if (plot):
+		plot.selected = true
+
 	selected = plot

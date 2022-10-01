@@ -17,3 +17,4 @@ func _ready():
 	player.set_actor(actor)
 	actor.shuffle()
 	hand.add_card(actor.draw())
+	hand.add_card(actor.draw())

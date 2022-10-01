@@ -13,3 +13,4 @@ func _on_Self_pressed():
 	var plot: Plot = game.player.selected
 	if plot && !plot.claimed():
 		plot.build(card)
+		game.player.select_plot(null)
