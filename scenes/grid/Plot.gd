@@ -2,7 +2,7 @@ extends Spatial
 class_name Plot
 
 var game
-var selected = false
+var is_focused = false
 var tween: Tween
 var body: StaticBody
 var mesh: MeshInstance
@@ -38,6 +38,8 @@ func _on_Body_input_event(camera, event, position, normal, shape_idx):
 			game.player.select_plot(self)
 			
 func focus():
+	if is_focused:
+		return
 	tween.interpolate_property(
 		self, "translation:y", 
 		0, 0.4,
@@ -46,8 +48,11 @@ func focus():
 	tween.start()
 	mesh.get_active_material(0).albedo_color *= multiplier
 	mesh.get_active_material(1).albedo_color *= multiplier
+	is_focused = true
 
 func blur():
+	if !is_focused:
+		return
 	tween.interpolate_property(
 		self, "translation:y", 
 		self.translation.y, 0, 
@@ -56,6 +61,7 @@ func blur():
 	tween.start()
 	mesh.get_active_material(0).albedo_color /= multiplier
 	mesh.get_active_material(1).albedo_color /= multiplier
+	is_focused = false
 	
 func build(card: Card):
 	var instance: Spatial = card.building.instance()
