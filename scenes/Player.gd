@@ -88,7 +88,8 @@ func use_card(card_index):
 
 func select_card(card_index):
 	selected_card_index = card_index
-	spawn_card_preview()
+	if is_human:
+		spawn_card_preview()
 	
 func get_selected_card():
 	if selected_card_index == -1:
@@ -107,6 +108,7 @@ func spawn_card_preview():
 func remove_card_preview():
 	preview_building.queue_free()
 	preview_building = null
+	$Preview.transform.origin = Vector3(100, 100, 100)
 
 
 
