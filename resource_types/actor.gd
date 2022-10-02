@@ -7,6 +7,7 @@ export(Resource) var deck
 #export(Dictionary) var traits
 #export(float, 0, 10, 0.1) var decisiveness
 #export(float, 0, 10, 0.1) var thoughtfulness
+export(Color) var plot_color
 
 var active_deck: Array
 

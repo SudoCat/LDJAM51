@@ -13,6 +13,8 @@ var place
 var placed_card
 export var multiplier = 1.2
 var rng = RandomNumberGenerator.new()
+var claimed_by
+var is_claimed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,10 +43,7 @@ func _on_Body_input_event(camera, event, position, normal, shape_idx):
 		return
 	if event is InputEventMouseButton:
 		if event.pressed:
-			if (game.player.selected_plot == self):
-				game.player.select_plot(null)
-			else:
-				game.player.select_plot(self)
+			game.player.select_plot(self)
 			
 func focus():
 	if is_focused:
@@ -55,10 +54,17 @@ func focus():
 			0, 0.4,
 			0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 		)
-	tween.start()
+		tween.start()
+		show_preview_building()
 	mesh.get_active_material(0).albedo_color *= multiplier
 	mesh.get_active_material(1).albedo_color *= multiplier
 	is_focused = true
+
+func show_preview_building():
+	var player: Player = game.player
+	if player.preview_building:
+		$PreviewSlot.remote_path = player.get_node("Preview").get_path()
+		anchor_building_to_plot(player.preview_building)
 
 func blur():
 	if !is_focused:
@@ -69,24 +75,53 @@ func blur():
 		0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 	)
 	tween.start()
+	hide_preview_building()
 	mesh.get_active_material(0).albedo_color /= multiplier
 	mesh.get_active_material(1).albedo_color /= multiplier
 	is_focused = false
-	
-func build(card: Card):
-	if claimed():
-		return
-	var instance: Spatial = card.building.instance()
-	add_child(instance)
+
+func hide_preview_building():
+	$PreviewSlot.remote_path = ""
+
+func anchor_building_to_plot(instance: Spatial):
 	var mesh: MeshInstance = instance.get_child(0)
 	var offset = mesh.transform.xform(mesh.get_aabb()).size.y / 2
 	var position = offset + 0.4
-	instance.translate(Vector3(0, position, 0))
 	rng.randomize()
-	instance.rotate(Vector3.UP, deg2rad(rng.randf_range(-25, 25)))
+	instance.transform.origin = Vector3(0, position, 0)
+	instance.transform.basis = Basis(Vector3.UP, deg2rad(rng.randf_range(-25, 25)))
+
+func claim(player, card):
+	if is_claimed:
+		return
+	is_claimed = true
 	placed_card = card
+	blur()
+	$Placeholder.show()
+	claimed_by = player
+	var mat = mesh.get_active_material(1)
+	tween.interpolate_property(
+			mat, "albedo_color", 
+			mat.albedo_color, player.actor.plot_color,
+			0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+		)
+	tween.interpolate_property(
+		$Placeholder, "translation:y",
+		-1, 0.9,
+		0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+	)
+	tween.start()
+
+func build(card: Card):
+	if !is_claimed:
+		return
+	
+	var instance: Spatial = card.building.instance()
+	add_child(instance)
+	anchor_building_to_plot(instance)
 	place = instance
 	emit_signal("plot_claimed")
+	$Placeholder.hide()
 
 	print('score', card.evaluate_score(self))
 	
@@ -105,4 +140,4 @@ func get_nearby(plot_radius):
 	return overlapping_plots
 
 func claimed():
-	return place != null
+	return is_claimed
