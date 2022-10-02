@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://resource_types/card.gd" type="Script" id=1]
-[ext_resource path="res://cards/church.png" type="Texture" id=2]
+[ext_resource path="res://cards/Church.png" type="Texture" id=2]
 [ext_resource path="res://assets/church.glb" type="PackedScene" id=3]
 
 [resource]

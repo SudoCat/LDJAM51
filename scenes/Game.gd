@@ -10,24 +10,50 @@ var hand
 var turn = 0
 var time_since_start = 0
 var time_this_turn = 0
+export(Array, Resource) var all_actors
+var available_actors: Array
+var current_district
 
 var actor: Actor = load("res://actors/default.tres")
+var player_scene = load("res://scenes/Player.tscn")
 
 func _ready():
-	player = get_node("Player")
 	hand = get_node("Interface/Hand")
+	current_district = $District
+	prepare()
 	
-	player.set_actor(actor)
-	actor.shuffle()
-	hand.add_card(actor.draw())
-	hand.add_card(actor.draw())
-	hand.add_card(actor.draw())
+	player = add_player(true)
+	add_player(false)
+	add_player(false)
+	add_player(false)
+	add_player(false)
+	add_player(false)
+
+func prepare():
+	available_actors = all_actors.duplicate()
+	randomize()
+	available_actors.shuffle()
+	
+func add_player(is_human):
+	var instance = player_scene.instance()
+	instance.is_human = is_human
+	if is_human:
+		instance.connect("use_card", hand, "_on_Player_use_card")
+		instance.connect("draw_card", hand, "_on_Player_draw_card")
+	var actor = available_actors.pop_back()
+	instance.set_actor(actor)
+	players.append(instance)
+	add_child(instance)
+	for i in players.size():
+		players[i].set_offset(10.0 / players.size() * i)
+	return instance
 
 var edge_size = 10;
 
 func _process(delta):
 	time_since_start += delta
-	#process_turn(delta)
+	var delay_between_turns = 10 / players.size()
+	turn_process(delta)
 	
 func move_viewport():
 	var pos = get_viewport().get_mouse_position()
@@ -57,8 +83,6 @@ func turn_process(delta):
 
 func turn_end():
 	time_this_turn = 0
-
-var at_edge_of_screen_time = 0
 
 #func _input(event):
 #	if event is InputEventMouseMotion:

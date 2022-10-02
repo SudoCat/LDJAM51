@@ -4,7 +4,9 @@ class_name Actor
 export(String) var name
 export(Texture) var image
 export(Array, Resource) var deck
-export(Dictionary) var dict = {}
+export(Dictionary) var traits
+export(float, 0, 10, 0.1) var decisiveness
+export(float, 0, 10, 0.1) var thoughtfulness
 
 var active_deck: Array
 

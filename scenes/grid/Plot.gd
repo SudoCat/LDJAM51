@@ -1,6 +1,8 @@
 extends Spatial
 class_name Plot
 
+signal plot_claimed
+
 var game
 var is_focused = false
 var tween: Tween
@@ -33,18 +35,24 @@ func _on_Body_mouse_exited():
 		blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):
+	if claimed():
+		return
 	if event is InputEventMouseButton:
 		if event.pressed:
-			game.player.select_plot(self)
+			if (game.player.selected_plot == self):
+				game.player.select_plot(null)
+			else:
+				game.player.select_plot(self)
 			
 func focus():
 	if is_focused:
 		return
-	tween.interpolate_property(
-		self, "translation:y", 
-		0, 0.4,
-		0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
-	)
+	if !claimed():
+		tween.interpolate_property(
+			self, "translation:y", 
+			0, 0.4,
+			0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+		)
 	tween.start()
 	mesh.get_active_material(0).albedo_color *= multiplier
 	mesh.get_active_material(1).albedo_color *= multiplier
@@ -73,6 +81,7 @@ func build(card: Card):
 	var position = offset + 0.4
 	instance.translate(Vector3(0, position, 0))
 	place = instance
+	emit_signal("plot_claimed")
 
 func claimed():
 	return place != null

@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bodega.png-b02515011b90cb011b34da9c2bd0bcd3.stex"
+path="res://.import/card-normal.png-f3f6f047d92e8ec285f5c7af92fd9ba3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/Bodega.png"
-dest_files=[ "res://.import/Bodega.png-b02515011b90cb011b34da9c2bd0bcd3.stex" ]
+source_file="res://cards/card-normal.png"
+dest_files=[ "res://.import/card-normal.png-f3f6f047d92e8ec285f5c7af92fd9ba3.stex" ]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
