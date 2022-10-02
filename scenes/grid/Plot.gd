@@ -10,6 +10,7 @@ var body: StaticBody
 var mesh: MeshInstance
 var pos: Vector3
 var place
+var placed_card
 export var multiplier = 1.2
 var rng = RandomNumberGenerator.new()
 
@@ -83,8 +84,25 @@ func build(card: Card):
 	instance.translate(Vector3(0, position, 0))
 	rng.randomize()
 	instance.rotate(Vector3.UP, deg2rad(rng.randf_range(-25, 25)))
+	placed_card = card
 	place = instance
 	emit_signal("plot_claimed")
+
+	print('score', card.evaluate_score(self))
+	
+func get_nearby(plot_radius):
+	var search_area = self.get_node('DetectNearbyPlots')
+	var search_area_collision_shape = search_area.get_node('CollisionShape')
+	search_area_collision_shape.get_shape().radius = plot_radius + 1
+
+	var all_overlapping_plots = search_area.get_overlapping_bodies()
+	var overlapping_plots = []
+
+	for plot in all_overlapping_plots:
+		if plot != self.get_node('StaticBody'):
+			overlapping_plots.append(plot.get_parent())
+
+	return overlapping_plots
 
 func claimed():
 	return place != null

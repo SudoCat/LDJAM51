@@ -32,7 +32,12 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Deck",
 "language": "GDScript",
-"path": "res://deck/deck.gd"
+"path": "res://resource_types/deck.gd"
+}, {
+"base": "Resource",
+"class": "EffectHasBuildingNearBy",
+"language": "GDScript",
+"path": "res://resource_types/effect_has_building_nearby.gd"
 }, {
 "base": "Spatial",
 "class": "Game",
@@ -60,6 +65,7 @@ _global_script_class_icons={
 "Card": "",
 "CardButton": "",
 "Deck": "",
+"EffectHasBuildingNearBy": "",
 "Game": "",
 "HandUI": "",
 "Player": "",

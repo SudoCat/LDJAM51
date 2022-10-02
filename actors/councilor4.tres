@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://resource_types/actor.gd" type="Script" id=1]
-[ext_resource path="res://deck/basic.tres" type="Resource" id=2]
+[ext_resource path="res://decks/basic.tres" type="Resource" id=2]
 [ext_resource path="res://actors/councilor4.png" type="Texture" id=3]
 
 [resource]
