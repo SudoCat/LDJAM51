@@ -21,8 +21,8 @@ func _process(delta):
 	if game.current_district.full:
 		return
 	current_turn_time += delta
-	#if !is_human:
-	#	brain()
+	if !is_human:
+		brain()
 	if current_turn_time > 10:
 		perform_turn()
 		current_turn_time = 0
@@ -113,8 +113,10 @@ func remove_card_preview():
 
 
 func brain():
+	if selected_plot:
+		return
 	if current_turn_time > 10:
-		brain_think_delay = rng.randf_range(0, 5)
+		brain_think_delay = rng.randf_range(0, 2)
 		return
 	if current_turn_time > brain_think_delay:
 		make_choice()
@@ -125,7 +127,7 @@ func make_choice():
 		randomize()
 		hand.shuffle()
 		select_card(0)
-	if rng.randf() > 0.1:
+	if selected_card_index != -1 && rng.randf() > 0.1:
 		select_plot(find_desirable_plot())
 
 func find_desirable_plot():
