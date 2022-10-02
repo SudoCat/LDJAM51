@@ -19,7 +19,7 @@ func evaluate(plot):
 	var score = 0
 
 	for plot in nearby_plots:
-		if not plot.place:
+		if not plot.placed_card:
 			continue
 		
 		for tag in related_tags:
