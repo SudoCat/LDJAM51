@@ -10,7 +10,7 @@ var selected_card
 var actor
 var is_human: bool
 var current_turn_time = 0
-var hand: Array
+var current_hand: Array
 onready var game = get_node("/root/Game")
 
 var brain_think_delay = 0
@@ -36,8 +36,8 @@ func brain(delta):
 		
 func make_choice():
 	if rng.randf() > 0.1:
-		hand.shuffle()
-		var card = hand.back()
+		current_hand.shuffle()
+		var card = current_hand.back()
 		select_card(card)
 	if rng.randf() > 0.1:
 		select_plot(find_desirable_plot())
@@ -59,7 +59,7 @@ func perform_turn():
 	if selected_card && selected_plot:
 		selected_plot.build(selected_card)
 		use_card(selected_card)
-		if hand.size() < 3:
+		if current_hand.size() < 3:
 			add_card(actor.draw())
 
 func set_actor(p_actor):
@@ -67,13 +67,14 @@ func set_actor(p_actor):
 	actor.shuffle()
 	add_card(actor.draw())
 	add_card(actor.draw())
+	add_card(actor.draw())
 	
 func add_card(card):
-	hand.append(card)
+	current_hand.append(card)
 	emit_signal("draw_card", card)
 
 func use_card(card):
-	hand.erase(card)
+	current_hand.erase(card)
 	selected_card = null
 	emit_signal("use_card", card)
 
