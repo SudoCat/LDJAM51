@@ -25,11 +25,11 @@ func get_xform_aabb():
 	return $grass.transform.xform($grass/tmpParent/grass.get_aabb())
 
 func _on_Body_mouse_entered():
-	if game.player.selected != self:
+	if game.player.selected_plot != self:
 		focus()
 	
 func _on_Body_mouse_exited():
-	if game.player.selected != self:
+	if game.player.selected_plot != self:
 		blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):

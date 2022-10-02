@@ -9,3 +9,5 @@
 script = ExtResource( 1 )
 name = ""
 deck = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ]
+dict = {
+}

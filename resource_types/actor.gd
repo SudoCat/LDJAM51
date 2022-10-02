@@ -4,6 +4,7 @@ class_name Actor
 export(String) var name
 export(Texture) var image
 export(Array, Resource) var deck
+export(Dictionary) var dict = {}
 
 var active_deck: Array
 

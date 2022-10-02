@@ -5,20 +5,24 @@ class_name Player
 # var a = 2
 # var b = "text"
 var ray_length = 10
-var selected
+var selected_plot
+var selected_card
 var actor
 
 func set_actor(p_actor):
 	actor = p_actor
 
 func select_plot(plot):
-	if selected:
-		selected.blur()
-		if selected == plot:
-			selected = null
+	if selected_plot:
+		selected_plot.blur()
+		if selected_plot == plot:
+			selected_plot = null
 			return
 
 	if (plot):
 		plot.focus()
 
-	selected = plot
+	selected_plot = plot
+
+func select_card(card):
+	selected_card = card

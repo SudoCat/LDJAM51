@@ -5,6 +5,10 @@ var template = load("res://scenes/Card Button.tscn")
 
 onready var container = $VFlowContainer
 
+func _ready():
+	var instance = template.instance()
+	container.add_child(instance)
+
 func add_card(card):
 	var instance = template.instance()
 	instance.set_card(card)
