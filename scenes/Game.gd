@@ -65,17 +65,13 @@ func move_viewport():
 	var distance = 0.01
 	if pos.x < edge_size:
 		$Camera.transform.origin += Vector3(distance, 0, 0).rotated(Vector3.UP, 0)
-		print("left")
 	elif (pos.x > get_viewport().size.x - edge_size):
 		$Camera.transform.origin += Vector3(distance, 0, 0).rotated(Vector3.UP, -135)
-		print("right")
 	
 	if pos.y < edge_size:
 		$Camera.transform.origin += Vector3(0, 0, -distance).rotated(Vector3.UP, -135)
-		print("up")
 	elif (pos.y > get_viewport().size.y - edge_size):
 		$Camera.transform.origin += Vector3(0, 0, distance).rotated(Vector3.UP, -135)
-		print("down")
 
 #func _input(event):
 #	if event is InputEventMouseMotion:
