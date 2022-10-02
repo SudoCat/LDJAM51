@@ -26,6 +26,13 @@ func _process(delta):
 	if current_turn_time > 10:
 		perform_turn()
 		current_turn_time = 0
+		
+func _ready():
+	# Draw first hand
+	actor.shuffle()
+	add_card(actor.draw())
+	add_card(actor.draw())
+	add_card(actor.draw())
 
 func set_offset(duration):
 	current_turn_time = -duration

@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/District.gd" type="Script" id=1]
+[ext_resource path="res://actors/councilor3.tres" type="Resource" id=2]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=3]
 [ext_resource path="res://scenes/interface.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/default.tres" type="Resource" id=5]
-[ext_resource path="res://actors/claud.tres" type="Resource" id=6]
+[ext_resource path="res://actors/councilor4.tres" type="Resource" id=5]
+[ext_resource path="res://actors/councilor2.tres" type="Resource" id=6]
+[ext_resource path="res://actors/councilor1.tres" type="Resource" id=7]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 3 )
-all_actors = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ) ]
+all_actors = [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 5 ) ]
 
 [node name="District" type="Spatial" parent="."]
 script = ExtResource( 1 )
