@@ -23,5 +23,5 @@ func shuffle():
 
 func draw():
 	if active_deck.empty():
-		shuffle()
+		return
 	return active_deck.pop_back()

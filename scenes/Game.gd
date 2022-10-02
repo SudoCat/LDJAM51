@@ -14,11 +14,13 @@ export(Array, Resource) var all_actors
 var available_actors: Array
 var current_district
 var interface
+var actor_list
 
 var player_scene = load("res://scenes/Player.tscn")
 
 func _ready():
-	hand = get_node("Interface/Hand")
+	hand = get_node("Interface/HandUI")
+	actor_list = get_node("Interface/ActorListUI")
 	current_district = $District
 	prepare()
 	
@@ -42,6 +44,7 @@ func add_player(is_human):
 	instance.set_actor(actor)
 	players.append(instance)
 	add_child(instance)
+	actor_list.add(instance.actor)
 	for i in players.size():
 		players[i].set_offset(10.0 / players.size() * i)
 	return instance
