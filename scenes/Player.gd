@@ -45,6 +45,8 @@ func make_choice():
 func find_desirable_plot():
 	var plots = game.current_district.plots
 	var index = rng.randi_range(0, plots.size() - 1)
+	if game.current_district.plots_claimed == plots.size():
+		return
 	if plots[index].claimed():
 		return find_desirable_plot()
 	return plots[index]

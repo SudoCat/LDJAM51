@@ -13,8 +13,8 @@ var time_this_turn = 0
 export(Array, Resource) var all_actors
 var available_actors: Array
 var current_district
+var interface
 
-var actor: Actor = load("res://actors/default.tres")
 var player_scene = load("res://scenes/Player.tscn")
 
 func _ready():
@@ -51,9 +51,14 @@ func add_player(is_human):
 var edge_size = 10;
 
 func _process(delta):
-	time_since_start += delta
-	var delay_between_turns = 10 / players.size()
-	turn_process(delta)
+	if current_district.full:
+		$Interface/District_End.show()
+		set_process(false)
+	else:
+		# Game loop
+		time_since_start += delta
+		var delay_between_turns = 10 / players.size()
+		turn_process(delta)
 	
 func move_viewport():
 	var pos = get_viewport().get_mouse_position()

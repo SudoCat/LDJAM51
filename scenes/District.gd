@@ -5,8 +5,12 @@ var innerRadius = 0
 var width = 7
 var height = 7
 var plots = []
+var plots_claimed = 0
+var full = false
 var plot_scene = preload("res://scenes/grid/Plot.tscn")
 var monument_card = preload("res://cards/sample_card.tres")
+
+signal district_full()
 
 func _ready():
 	var i = 0
@@ -17,7 +21,8 @@ func _ready():
 		for x in range(colums):
 			create_plot(x, z, i, distance_from_center / 2)
 			i += 1
-			
+	
+	connect_to_plots()
 	add_monument()
 			
 			
@@ -35,9 +40,18 @@ func create_plot(x,z,_i,offset):
 	add_child(plot)
 	plots.append(plot)
 	
+func connect_to_plots():
+	for plot in plots:
+		plot.connect("plot_claimed", self, "on_Plot_plot_claimed")
 	
 func add_monument():
 	print(plots.size())
 	var middle = ceil(plots.size()/2)
 	plots[middle].build(monument_card)
+	
+func on_Plot_plot_claimed():
+	plots_claimed += 1
+	
+	if plots_claimed >= plots.size():
+		full = true
 	
