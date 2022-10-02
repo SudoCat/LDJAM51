@@ -23,7 +23,6 @@ func evaluate(plot):
 			continue
 		
 		for tag in related_tags:
-			print(tag, plot.placed_card.tags)
 			if tag in plot.placed_card.tags:
 				score += points
 

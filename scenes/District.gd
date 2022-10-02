@@ -45,7 +45,6 @@ func connect_to_plots():
 		plot.connect("plot_claimed", self, "on_Plot_plot_claimed")
 	
 func add_monument():
-	print(plots.size())
 	var middle = ceil(plots.size()/2)
 	plots[middle].build(monument_card)
 	
