@@ -26,8 +26,6 @@ func _ready():
 	add_player(false)
 	add_player(false)
 	add_player(false)
-	add_player(false)
-	add_player(false)
 
 func prepare():
 	available_actors = all_actors.duplicate()
@@ -57,6 +55,7 @@ func _process(delta):
 	else:
 		# Game loop
 		time_since_start += delta
+		$Interface/Timer/DayCount.text = str('Day ', ceil(time_since_start))
 	
 func move_viewport():
 	var pos = get_viewport().get_mouse_position()

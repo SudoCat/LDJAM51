@@ -33,7 +33,7 @@ anchor_right = 1.0
 margin_left = -220.0
 margin_bottom = 140.0
 
-[node name="Label" type="Label" parent="Timer"]
+[node name="DayCount" type="Label" parent="Timer"]
 margin_left = 31.0
 margin_top = 27.0
 margin_right = 192.0
@@ -43,11 +43,19 @@ text = "Day 1"
 align = 1
 valign = 1
 
-[node name="Turns" type="Panel" parent="."]
+[node name="ActorList" type="Panel" parent="."]
 margin_left = 360.0
 margin_top = 900.0
 margin_right = 1920.0
 margin_bottom = 1080.0
+
+[node name="VFlowContainer2" type="VFlowContainer" parent="ActorList"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
 
 [node name="District_End" type="Panel" parent="."]
 visible = false

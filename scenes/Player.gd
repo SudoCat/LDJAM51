@@ -27,6 +27,13 @@ func _process(delta):
 		perform_turn()
 
 		current_turn_time = 0
+		
+func _ready():
+	# Draw first hand
+	actor.shuffle()
+	add_card(actor.draw())
+	add_card(actor.draw())
+	add_card(actor.draw())
 
 func brain(delta):
 	if current_turn_time > 10:
@@ -66,11 +73,7 @@ func perform_turn():
 
 func set_actor(p_actor):
 	actor = p_actor
-	actor.shuffle()
-	add_card(actor.draw())
-	add_card(actor.draw())
-	add_card(actor.draw())
-	
+
 func add_card(card):
 	hand.append(card)
 	emit_signal("draw_card", card)

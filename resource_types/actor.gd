@@ -3,10 +3,10 @@ class_name Actor
 
 export(String) var name
 export(Texture) var image
-export(Array, Resource) var deck
-export(Dictionary) var traits
-export(float, 0, 10, 0.1) var decisiveness
-export(float, 0, 10, 0.1) var thoughtfulness
+export(Resource) var deck
+#export(Dictionary) var traits
+#export(float, 0, 10, 0.1) var decisiveness
+#export(float, 0, 10, 0.1) var thoughtfulness
 
 var active_deck: Array
 
@@ -16,7 +16,8 @@ func _init(p_name = "card", p_image = null, p_deck = []):
 	deck = p_deck
 
 func shuffle():
-	active_deck = deck.duplicate()
+	print(deck)
+	active_deck = deck.cards.duplicate()
 	randomize()
 	active_deck.shuffle()
 
