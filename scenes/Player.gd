@@ -69,6 +69,7 @@ func set_actor(p_actor):
 	actor.shuffle()
 	add_card(actor.draw())
 	add_card(actor.draw())
+	add_card(actor.draw())
 	
 func add_card(card):
 	hand.append(card)

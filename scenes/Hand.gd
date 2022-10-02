@@ -13,7 +13,6 @@ func remove_card(index):
 
 func add_card(card):
 	var instance = template.instance()
-	print('card', instance)
 	instance.set_card(card)
 	container.add_child(instance)
 

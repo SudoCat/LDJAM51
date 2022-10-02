@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/fonts/Crimson_Text/crimson_semibold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/base_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/Hand.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/Crimson_Text/crimson_semibold.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Theme" id=1]
-/fonts/MainText = ExtResource( 1 )
+/fonts/MainText = ExtResource( 3 )
 /styles/Label = null
-RichTextLabel/fonts/normal_font = ExtResource( 1 )
+RichTextLabel/fonts/normal_font = ExtResource( 3 )
 
 [node name="Interface" type="Control"]
 anchor_right = 1.0
@@ -31,6 +32,16 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -220.0
 margin_bottom = 140.0
+
+[node name="Label" type="Label" parent="Timer"]
+margin_left = 31.0
+margin_top = 27.0
+margin_right = 192.0
+margin_bottom = 110.0
+theme = ExtResource( 1 )
+text = "Day 1"
+align = 1
+valign = 1
 
 [node name="Turns" type="Panel" parent="."]
 margin_left = 360.0
