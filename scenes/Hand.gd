@@ -6,10 +6,6 @@ var template = load("res://scenes/Card Button.tscn")
 onready var container = $VFlowContainer
 
 var cards: Dictionary
-
-func _ready():
-	var instance = template.instance()
-	container.add_child(instance)
 	
 func use_card(card):
 	for key in cards.keys():
@@ -18,7 +14,6 @@ func use_card(card):
 
 func add_card(card):
 	var instance = template.instance()
-	print('card', instance)
 	instance.set_card(card)
 	container.add_child(instance)
 	cards[card] = instance
