@@ -18,6 +18,8 @@ var rng = RandomNumberGenerator.new()
 
 func _process(delta):
 	game.time_since_start
+	if game.current_district.full:
+		return
 	current_turn_time += delta
 	if !is_human:
 		brain(delta)

@@ -57,8 +57,6 @@ func _process(delta):
 	else:
 		# Game loop
 		time_since_start += delta
-		var delay_between_turns = 10 / players.size()
-		turn_process(delta)
 	
 func move_viewport():
 	var pos = get_viewport().get_mouse_position()
@@ -76,18 +74,6 @@ func move_viewport():
 	elif (pos.y > get_viewport().size.y - edge_size):
 		$Camera.transform.origin += Vector3(0, 0, distance).rotated(Vector3.UP, -135)
 		print("down")
-
-func turn_start():
-	pass
-
-func turn_process(delta):
-	time_this_turn += delta
-	if time_this_turn > 10:
-		turn_end()
-		turn_start()
-
-func turn_end():
-	time_this_turn = 0
 
 #func _input(event):
 #	if event is InputEventMouseMotion:
