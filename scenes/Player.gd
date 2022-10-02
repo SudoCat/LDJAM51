@@ -10,7 +10,7 @@ var selected_card_index
 var actor
 var is_human: bool
 var current_turn_time = 0
-var current_hand: Array
+var hand: Array
 onready var game = get_node("/root/Game")
 
 var brain_think_delay = 0
@@ -70,7 +70,7 @@ func set_actor(p_actor):
 	add_card(actor.draw())
 	
 func add_card(card):
-	current_hand.append(card)
+	hand.append(card)
 	emit_signal("draw_card", card)
 
 func use_card(card):
