@@ -64,12 +64,15 @@ func blur():
 	is_focused = false
 	
 func build(card: Card):
+	if claimed():
+		return
 	var instance: Spatial = card.building.instance()
 	add_child(instance)
 	var mesh: MeshInstance = instance.get_child(0)
 	var offset = mesh.transform.xform(mesh.get_aabb()).size.y / 2
 	var position = offset + 0.4
 	instance.translate(Vector3(0, position, 0))
+	place = instance
 
 func claimed():
 	return place != null

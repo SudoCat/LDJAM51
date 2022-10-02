@@ -13,10 +13,10 @@ margin_bottom = 1080.0
 script = ExtResource( 2 )
 
 [node name="VFlowContainer" type="VFlowContainer" parent="Hand"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 340.0
-margin_bottom = 1100.0
+margin_left = 51.0
+margin_top = 31.0
+margin_right = 301.0
+margin_bottom = 895.0
 
 [node name="Timer" type="Panel" parent="."]
 anchor_left = 1.0

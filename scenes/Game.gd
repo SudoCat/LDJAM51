@@ -21,6 +21,7 @@ func _ready():
 	actor.shuffle()
 	hand.add_card(actor.draw())
 	hand.add_card(actor.draw())
+	hand.add_card(actor.draw())
 
 var edge_size = 10;
 
