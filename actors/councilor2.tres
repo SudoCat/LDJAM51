@@ -9,3 +9,4 @@ script = ExtResource( 1 )
 name = "Councilor No.2"
 image = ExtResource( 2 )
 deck = ExtResource( 3 )
+plot_color = Color( 0.572549, 0.521569, 0.792157, 1 )

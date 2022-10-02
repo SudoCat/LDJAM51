@@ -9,6 +9,7 @@ var tween: Tween
 var body: StaticBody
 var mesh: MeshInstance
 var pos: Vector3
+var current_card
 var place
 export var multiplier = 1.2
 var rng = RandomNumberGenerator.new()
@@ -91,8 +92,10 @@ func anchor_building_to_plot(instance: Spatial):
 	instance.transform.basis = Basis(Vector3.UP, deg2rad(rng.randf_range(-25, 25)))
 
 func claim(player, card):
-	if !is_claimed:
-		is_claimed = true
+	if is_claimed:
+		return
+	is_claimed = true
+	current_card = card
 	blur()
 	$Placeholder.show()
 	claimed_by = player
