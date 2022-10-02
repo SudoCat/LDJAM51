@@ -113,9 +113,7 @@ func claim(player, card):
 	tween.start()
 
 func build(card: Card):
-	if !is_claimed:
-		return
-	
+	is_claimed = true
 	var instance: Spatial = card.building.instance()
 	add_child(instance)
 	anchor_building_to_plot(instance)
