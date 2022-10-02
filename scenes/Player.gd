@@ -6,7 +6,7 @@ signal use_card
 
 var ray_length = 10
 var selected_plot
-var selected_card_index
+var selected_card_index = -1
 var actor
 var is_human: bool
 var current_turn_time = 0
@@ -55,7 +55,7 @@ func find_desirable_plot():
 
 func set_offset(duration):
 	print(duration)
-	current_turn_time = -duration
+	current_turn_time = duration
 
 func perform_turn():
 	if selected_card_index != -1 && selected_plot:

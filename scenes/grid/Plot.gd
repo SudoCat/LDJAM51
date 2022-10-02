@@ -11,6 +11,7 @@ var mesh: MeshInstance
 var pos: Vector3
 var place
 export var multiplier = 1.2
+var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -80,6 +81,8 @@ func build(card: Card):
 	var offset = mesh.transform.xform(mesh.get_aabb()).size.y / 2
 	var position = offset + 0.4
 	instance.translate(Vector3(0, position, 0))
+	rng.randomize()
+	instance.rotate(Vector3.UP, deg2rad(rng.randf_range(-25, 25)))
 	place = instance
 	emit_signal("plot_claimed")
 
