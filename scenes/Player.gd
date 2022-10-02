@@ -25,7 +25,7 @@ func _process(delta):
 		brain(delta)
 	if current_turn_time > 10:
 		perform_turn()
-		print("perform turn")
+
 		current_turn_time = 0
 
 func brain(delta):
