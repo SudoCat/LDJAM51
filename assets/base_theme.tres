@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/Crimson_Text/crimson_semibold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/Crimson_Text/crimson_semibold_huge.tres" type="DynamicFont" id=2]
+
+[resource]
+/fonts/MainText = ExtResource( 2 )
+/styles/Label = null
+Label/fonts/font = ExtResource( 2 )
+RichTextLabel/fonts/normal_font = ExtResource( 1 )
