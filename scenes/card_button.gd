@@ -10,4 +10,4 @@ func set_card(p_card: Card):
 	self.connect("pressed", self, "_on_Self_pressed")
 
 func _on_Self_pressed():
-	game.player.select_card(card)
+	game.player.select_card(self.get_index())

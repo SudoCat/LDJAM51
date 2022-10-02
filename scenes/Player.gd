@@ -6,7 +6,7 @@ signal use_card
 
 var ray_length = 10
 var selected_plot
-var selected_card
+var selected_card_index
 var actor
 var is_human: bool
 var current_turn_time = 0
@@ -36,9 +36,9 @@ func brain(delta):
 		
 func make_choice():
 	if rng.randf() > 0.1:
+		randomize()
 		hand.shuffle()
-		var card = hand.back()
-		select_card(card)
+		select_card(0)
 	if rng.randf() > 0.1:
 		select_plot(find_desirable_plot())
 
@@ -56,11 +56,11 @@ func set_offset(duration):
 	current_turn_time = -duration
 
 func perform_turn():
-	if selected_card && selected_plot:
-		selected_plot.build(selected_card)
-		use_card(selected_card)
-		if hand.size() < 3:
-			add_card(actor.draw())
+	if selected_card_index != -1 && selected_plot:
+		selected_plot.build(get_selected_card())
+		use_card(selected_card_index)
+	if hand.size() < 3:
+		add_card(actor.draw())
 
 func set_actor(p_actor):
 	actor = p_actor
@@ -73,8 +73,8 @@ func add_card(card):
 	emit_signal("draw_card", card)
 
 func use_card(card):
-	hand.erase(card)
-	selected_card = null
+	hand.remove(card)
+	selected_card_index = -1
 	emit_signal("use_card", card)
 
 func select_plot(plot):
@@ -90,5 +90,10 @@ func select_plot(plot):
 func on_Plot_plot_claimed():
 	select_plot(null)
 
-func select_card(card):
-	selected_card = card
+func select_card(card_index):
+	selected_card_index = card_index
+
+func get_selected_card():
+	if selected_card_index == -1:
+		return null
+	return hand[selected_card_index]
