@@ -21,3 +21,15 @@ func _on_Player_use_card(index):
 
 func _on_Player_draw_card(card):
 	add_card(card)
+
+func disable():
+	toggle_disabled(true)
+		
+func enable():
+	toggle_disabled(false)
+		
+func toggle_disabled(disabled):
+	var count = container.get_child_count()
+	for i in count:
+		var btn = container.get_child(i) as CardButton
+		btn.disabled = disabled
