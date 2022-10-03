@@ -20,4 +20,4 @@ card_image = ExtResource( 2 )
 building = ExtResource( 3 )
 effects = [ SubResource( 1 ) ]
 tags = [ "residential" ]
-base_points = 1
+base_points = 3

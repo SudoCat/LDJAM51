@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=7 format=2]
+[gd_resource type="Resource" load_steps=8 format=2]
 
 [ext_resource path="res://resource_types/deck.gd" type="Script" id=1]
 [ext_resource path="res://cards/residential_city.tres" type="Resource" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://cards/trash_incinerator.tres" type="Resource" id=4]
 [ext_resource path="res://cards/nature_reserve.tres" type="Resource" id=5]
 [ext_resource path="res://cards/ominous_floating_cube.tres" type="Resource" id=6]
+[ext_resource path="res://cards/cottage.tres" type="Resource" id=7]
 
 [resource]
 script = ExtResource( 1 )
 key = ""
-cards = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
+cards = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
