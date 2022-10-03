@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/grid/grass.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/grid/Plot.gd" type="Script" id=2]
@@ -17,7 +17,7 @@ flags_unshaded = true
 albedo_texture = ExtResource( 3 )
 
 [sub_resource type="QuadMesh" id=4]
-size = Vector2( 2, 2 )
+size = Vector2( 3, 3 )
 
 [sub_resource type="ViewportTexture" id=5]
 viewport_path = NodePath("Viewport")
@@ -28,6 +28,14 @@ flags_transparent = true
 flags_unshaded = true
 flags_albedo_tex_force_srgb = true
 albedo_texture = SubResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=7]
+resource_local_to_scene = true
+flags_unshaded = true
+params_cull_mode = 2
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=8]
 
 [node name="Plot" type="Spatial"]
 script = ExtResource( 2 )
@@ -50,7 +58,7 @@ shape = SubResource( 2 )
 
 [node name="PreviewSlot" type="RemoteTransform" parent="."]
 
-[node name="Placeholder" type="CSGBox" parent="."]
+[node name="Placeholder_old" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 visible = false
 material_overlay = SubResource( 3 )
@@ -60,8 +68,9 @@ depth = 1.0
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 250, 282 )
-fxaa = true
+msaa = 2
 hdr = false
+usage = 0
 render_target_v_flip = true
 
 [node name="Control" type="Control" parent="Viewport"]
@@ -75,3 +84,31 @@ show_only_details = true
 transform = Transform( 0, 0, -0.612372, 0, 0, 0.5, 0, 0, -0.612372, 0, 3, 0 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 6 )
+
+[node name="Placeholder" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.918093, 0 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="Placeholder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="Placeholder"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3" type="MeshInstance" parent="Placeholder"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.5 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../..")
+
+[node name="MeshInstance4" type="MeshInstance" parent="Placeholder"]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../..")

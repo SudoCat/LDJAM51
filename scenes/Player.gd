@@ -20,7 +20,7 @@ var brain_think_delay = 0
 var rng = RandomNumberGenerator.new()
 
 func _process(delta):
-	if game.current_district.full:
+	if !game.round_active:
 		return
 	current_turn_time += delta
 	if !is_human:
@@ -32,6 +32,7 @@ func _process(delta):
 
 func set_offset(duration):
 	current_turn_time = -duration
+	avatar_ui.set_turn_time(0)
 
 func perform_turn():
 	# build plot and use card
@@ -110,6 +111,8 @@ func spawn_card_preview():
 	$Preview.add_child(preview_building)
 	
 func remove_card_preview():
+	if !preview_building:
+		return
 	preview_building.queue_free()
 	preview_building = null
 	$Preview.transform.origin = Vector3(100, 1000, 1000)
@@ -140,11 +143,15 @@ func find_desirable_plot():
 	if plots[index].claimed():
 		return find_desirable_plot()
 	return plots[index]
-	
+
+
 func show_score(highscore):
 	var score = evaluate_score()
 	var is_highscore = score == highscore
 	avatar_ui.set_score(score, is_highscore)
+	
+func hide_score():
+	avatar_ui.hide_score()
 
 func evaluate_score():
 	var score = 0

@@ -2,6 +2,7 @@ extends Spatial
 class_name Game
 
 var players = []
+var scores = []
 var player
 var hand
 var turn = 0
@@ -13,7 +14,7 @@ var current_district
 var interface
 var actor_list
 var can_pan = false
-var game_started = false
+var round_active = false
 var edge_size = 15;
 
 var player_scene = load("res://scenes/Player.tscn")
@@ -82,15 +83,22 @@ func start(councillor):
 	add_player(opposition)
 	available_actors.erase(councillor)
 	available_actors.erase(opposition)
-	game_started = true
+	round_active = true
 
-func start_next_district():
+func _on_NextDistrict_pressed():
+	start_new_round()
+	
+func start_new_round():
 	var size = current_district.get_size()
 	var key = available_districts[randi() % available_districts.size()]
 	available_districts.erase(key)
 	var position = districts["center"].district.get_neighbour_start(districts[key].index)
 	districts[key].district = add_district(position)
 	add_player(get_random_actor())
+	$Interface/District_End.hide()
+	hide_scores()
+	hand.enable()
+	round_active = true
 
 func add_district(position):
 	var instance = district_scene.instance()
@@ -131,28 +139,40 @@ func add_player(councillor, is_human = false):
 	actor_list.add(instance)
 	for i in players.size():
 		players[i].set_offset(10.0 / players.size() * i)
+	scores.append(0)
 	return instance
 
 func _process(delta):
 	move_viewport()
-	if !game_started:
+	if !round_active:
 		return
 	if current_district.full:
-		set_process(false)
-		$Interface/District_End.show()
-		show_scores()
+		end_round()
 	else:
 		# Game loop
 		time_since_start += delta
 		$Interface/Timer/DayCount.text = str('Day ', floor(time_since_start))
 
+func end_round():
+	$Interface/District_End.show()
+	show_scores()
+	hand.disable()
+	round_active = false
+	player.remove_card_preview()
+	player.selected_card_index = -1
+
 func show_scores():
-	var scores = []
-	for player in players:
-		scores.append( player.evaluate_score())
+	for i in players.size():
+		scores[i] = players[i].evaluate_score()
+	
 	var highscore = scores.max()
 	for player in players:
 		player.show_score(highscore)
+
+func hide_scores():
+	for player in players:
+		player.hide_score()
+	
 	
 func move_viewport():
 	if !can_pan:

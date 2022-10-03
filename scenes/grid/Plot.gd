@@ -16,7 +16,6 @@ var placed_card
 export var multiplier = 1.2
 var rng = RandomNumberGenerator.new()
 var claimed_by
-var is_claimed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,7 +38,7 @@ func _on_Body_mouse_exited():
 	blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):
-	if district != game.current_district || claimed():
+	if !game.round_active || district != game.current_district || claimed():
 		return
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -77,6 +76,7 @@ func show_preview_building():
 	if player && player.preview_building:
 		$PreviewSlot.remote_path = player.get_node("Preview").get_path()
 		anchor_building_to_plot(player.preview_building)
+		player.preview_building.show()
 
 func blur():
 	if !is_focused:
@@ -104,6 +104,9 @@ func blur():
 
 func hide_preview_building():
 	$PreviewSlot.remote_path = ""
+	var player: Player = game.player
+	if player && player.preview_building:
+		player.preview_building.hide()
 
 func anchor_building_to_plot(instance: Spatial):
 	var mesh: MeshInstance = instance.get_child(0)
@@ -114,15 +117,14 @@ func anchor_building_to_plot(instance: Spatial):
 	instance.transform.basis = Basis(Vector3.UP, deg2rad(rng.randf_range(-25, 25)))
 
 func claim(player, card):
-	if is_claimed:
+	if claimed():
 		return
-	is_claimed = true
-	placed_card = card
-	blur()
-	($Placeholder.material_overlay as SpatialMaterial).albedo_texture = player.actor.hoarding
-	$Placeholder.show()
 	claimed_by = player
 	claimed_by.claimed.append(self)
+	set_card(card)
+	blur()
+	($Placeholder/MeshInstance.material_override as SpatialMaterial).albedo_texture = player.actor.hoarding
+	$Placeholder.show()
 	var mat = mesh.get_active_material(1)
 	tween.interpolate_property(
 			mat, "albedo_color", 
@@ -137,7 +139,12 @@ func claim(player, card):
 	tween.start()
 	$"Viewport/Control/Card Button".set_card(card)
 
+func set_card(card: Card):
+	placed_card = card
+	$"Viewport/Control/Card Button".set_card(card)
+
 func build(card: Card):
+	set_card(card)
 	var instance: Spatial = card.building.instance()
 	add_child(instance)
 	anchor_building_to_plot(instance)
@@ -171,4 +178,4 @@ func get_nearby(plot_radius):
 	return overlapping_plots
 
 func claimed():
-	return is_claimed
+	return claimed_by || place

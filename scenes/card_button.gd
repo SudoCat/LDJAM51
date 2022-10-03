@@ -9,6 +9,7 @@ export(bool) var show_only_details = false
 func set_card(p_card: Card):
 	card = p_card
 	$Image.texture = card.card_image
+	$Info/VFlowContainer/RichTextLabel.text = ""
 	for effect in card.effects:
 		$Info/VFlowContainer/RichTextLabel.text += effect.description + "\n"
 	if show_only_details:
