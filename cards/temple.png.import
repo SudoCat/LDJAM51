@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/church.png-5bfd96203552e6099ab82cd99cf0e899.stex"
+path="res://.import/temple.png-40f7fd839192d5245910698f0ad14e36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/church.png"
-dest_files=[ "res://.import/church.png-5bfd96203552e6099ab82cd99cf0e899.stex" ]
+source_file="res://cards/temple.png"
+dest_files=[ "res://.import/temple.png-40f7fd839192d5245910698f0ad14e36.stex" ]
 
 [params]
 
