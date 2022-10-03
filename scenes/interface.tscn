@@ -36,6 +36,8 @@ margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
 
+[node name="Tween" type="Tween" parent="HandUI"]
+
 [node name="Timer" type="Panel" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0

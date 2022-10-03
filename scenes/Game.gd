@@ -12,6 +12,7 @@ var available_actors: Array
 var current_district
 var interface
 var actor_list
+var can_pan = false
 
 var player_scene = load("res://scenes/Player.tscn")
 
@@ -20,7 +21,17 @@ func _ready():
 	actor_list = get_node("Interface/ActorListUI")
 	current_district = $District
 	prepare()
+	start()
 	
+func _notification(what):
+	match what:
+		NOTIFICATION_WM_MOUSE_EXIT:
+			can_pan = false
+		NOTIFICATION_WM_MOUSE_ENTER:
+			can_pan = true
+	
+func start():
+	can_pan = true
 	player = add_player(true)
 	add_player(false)
 	add_player(false)
@@ -68,6 +79,8 @@ func show_scores():
 		player.show_score(highscore)
 	
 func move_viewport():
+	if !can_pan:
+		return
 	var pos = get_viewport().get_mouse_position()
 	var distance = 0.01
 	var rad = deg2rad(45)
