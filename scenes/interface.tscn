@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/base_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/HandUI.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://councillors/councilor2.tres" type="Resource" id=9]
 [ext_resource path="res://councillors/councilor4.tres" type="Resource" id=10]
 [ext_resource path="res://councillors/councilor1.tres" type="Resource" id=11]
+[ext_resource path="res://scenes/NextDistrict.gd" type="Script" id=12]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.713726, 0.580392, 0.482353, 1 )
@@ -111,6 +112,20 @@ theme = SubResource( 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "Have at it Chris, Lorem ipsum set demet lalalalallalalalal"
 scroll_active = false
+
+[node name="NextDistrict" type="Button" parent="District_End"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -20.0
+margin_right = -20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 140, 40 )
+theme = ExtResource( 1 )
+text = "Next District"
+script = ExtResource( 12 )
 
 [node name="CouncillorSelect" type="Panel" parent="."]
 anchor_left = 0.5

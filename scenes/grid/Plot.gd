@@ -4,6 +4,8 @@ class_name Plot
 signal plot_claimed
 
 var game
+var district
+var index
 var is_focused = false
 var tween: Tween
 var body: StaticBody
@@ -37,7 +39,7 @@ func _on_Body_mouse_exited():
 	blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):
-	if claimed():
+	if district != game.current_district || claimed():
 		return
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -117,6 +119,7 @@ func claim(player, card):
 	is_claimed = true
 	placed_card = card
 	blur()
+	($Placeholder.material_overlay as SpatialMaterial).albedo_texture = player.actor.hoarding
 	$Placeholder.show()
 	claimed_by = player
 	claimed_by.claimed.append(self)
