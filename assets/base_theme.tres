@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=4 format=2]
+[gd_resource type="Theme" load_steps=5 format=2]
 
 [ext_resource path="res://assets/fonts/Crimson_Text/crimson_semibold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/Crimson_Text/crimson_semibold_huge.tres" type="DynamicFont" id=2]
+[ext_resource path="res://styles/name_font.tres" type="DynamicFont" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.117647, 0.113725, 0.129412, 1 )
@@ -9,6 +10,7 @@ bg_color = Color( 0.117647, 0.113725, 0.129412, 1 )
 [resource]
 /fonts/MainText = ExtResource( 2 )
 /styles/Label = null
+Button/fonts/font = ExtResource( 3 )
 HFlowContainer/constants/hseparation = 20
 Label/fonts/font = ExtResource( 2 )
 Panel/styles/panel = SubResource( 1 )

@@ -1,14 +1,16 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://resource_types/actor.gd" type="Script" id=1]
 [ext_resource path="res://councillors/originals/Councilor2.jpg" type="Texture" id=2]
 [ext_resource path="res://decks/basic.tres" type="Resource" id=3]
+[ext_resource path="res://councillors/councilor2.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
 name = "Councilor No.2"
 description = ""
 image = ExtResource( 2 )
+hoarding = ExtResource( 4 )
 deck = ExtResource( 3 )
 plot_color = Color( 0.772549, 0.52549, 0.290196, 1 )
 opposition = "res://councillors/councilor3.tres"

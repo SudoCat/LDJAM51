@@ -12,6 +12,8 @@ height = 0.8
 height = 0.4
 
 [sub_resource type="SpatialMaterial" id=3]
+resource_local_to_scene = true
+flags_unshaded = true
 albedo_texture = ExtResource( 3 )
 
 [sub_resource type="QuadMesh" id=4]

@@ -4,6 +4,7 @@ class_name Actor
 export(String) var name
 export(String) var description
 export(Texture) var image
+export(Texture) var hoarding
 export(Resource) var deck
 #export(Dictionary) var traits
 #export(float, 0, 10, 0.1) var decisiveness
