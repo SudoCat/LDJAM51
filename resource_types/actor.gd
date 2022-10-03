@@ -11,6 +11,10 @@ export(Resource) var deck
 #export(float, 0, 10, 0.1) var thoughtfulness
 export(Color) var plot_color
 export(String, FILE, "*.tres") var opposition
+export(Array, String) var claim_barks
+export(Array, String) var build_barks
+export(Array, String) var win_barks
+export(Array, String) var lose_barks
 
 var active_deck: Array
 

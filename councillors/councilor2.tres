@@ -14,3 +14,7 @@ hoarding = ExtResource( 4 )
 deck = ExtResource( 3 )
 plot_color = Color( 0.772549, 0.52549, 0.290196, 1 )
 opposition = "res://councillors/councilor3.tres"
+claim_barks = [  ]
+build_barks = [  ]
+win_barks = [  ]
+lose_barks = [  ]
