@@ -132,11 +132,11 @@ func brain():
 		brain_think_delay = max(rng.randf_range(current_turn_time + 1, current_turn_time + 3), 9)
 		
 func make_choice():
-	if rng.randf() > 0.2:
+	if rng.randf() > 0.1:
 		randomize()
 		hand.shuffle()
 		select_card(0)
-	if selected_card_index != -1 && rng.randf() > 0.2:
+	if selected_card_index != -1 && rng.randf() > 0.1:
 		select_plot(find_desirable_plot())
 
 func find_desirable_plot():
@@ -159,8 +159,9 @@ func hide_score():
 
 func evaluate_score():
 	var score = 0
+
 	for plot in claimed:
-		if plot.district != game.current_district:
+		if plot.district == game.current_district:
 			score += plot.evaluate_score()
 	return score
 

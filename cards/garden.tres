@@ -1,8 +1,25 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://resource_types/card.gd" type="Script" id=1]
 [ext_resource path="res://cards/garden.png" type="Texture" id=2]
 [ext_resource path="res://assets/garden.glb" type="PackedScene" id=3]
+[ext_resource path="res://resource_types/effect_has_building_nearby.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 4 )
+key = "garden-adjacent-residential-temple"
+description = ""
+related_tags = [ "residential", "temple" ]
+points = 2
+tile_area_of_affect = 1
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+key = "garden-adjacent-garden"
+description = ""
+related_tags = [ "garden" ]
+points = 1
+tile_area_of_affect = 1
 
 [resource]
 script = ExtResource( 1 )
@@ -10,6 +27,6 @@ name = ""
 description = ""
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
-effects = [  ]
-tags = [  ]
+effects = [ SubResource( 1 ), SubResource( 2 ) ]
+tags = [ "garden" ]
 base_points = 2

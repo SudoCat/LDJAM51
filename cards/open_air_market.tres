@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://resource_types/card.gd" type="Script" id=1]
 [ext_resource path="res://cards/open air market.png" type="Texture" id=2]
@@ -7,10 +7,18 @@
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 4 )
-key = "cornershop-near-residential"
-description = "+2 for every touching residential"
+key = "open_air_market-near-residential"
+description = "+3 for every touching residential"
 related_tags = [ "residential" ]
-points = 1
+points = 3
+tile_area_of_affect = 1
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+key = "open_air_market_near_incinerator"
+description = ""
+related_tags = [ "trash incinerator" ]
+points = -3
 tile_area_of_affect = 1
 
 [resource]
@@ -18,6 +26,6 @@ script = ExtResource( 1 )
 name = "Supermarket"
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
-effects = [ SubResource( 1 ) ]
+effects = [ SubResource( 1 ), SubResource( 2 ) ]
 tags = [  ]
-base_points = 2
+base_points = 3
