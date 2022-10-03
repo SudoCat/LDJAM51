@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/church.png-5bfd96203552e6099ab82cd99cf0e899.stex"
+path="res://.import/night_market.png-755a2a7673b2bf54ac7f1d31977e57f0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/church.png"
-dest_files=[ "res://.import/church.png-5bfd96203552e6099ab82cd99cf0e899.stex" ]
+source_file="res://cards/night_market.png"
+dest_files=[ "res://.import/night_market.png-755a2a7673b2bf54ac7f1d31977e57f0.stex" ]
 
 [params]
 

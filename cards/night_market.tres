@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://resource_types/card.gd" type="Script" id=1]
+[ext_resource path="res://cards/night_market.png" type="Texture" id=2]
+[ext_resource path="res://assets/night_market.glb" type="PackedScene" id=3]
+[ext_resource path="res://resource_types/effect_has_building_nearby.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 4 )
+key = ""
+description = ""
+related_tags = [ "residential" ]
+points = 3
+tile_area_of_affect = 1
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+description = ""
+card_image = ExtResource( 2 )
+building = ExtResource( 3 )
+effects = [ SubResource( 1 ) ]
+tags = [  ]
+base_points = 5
