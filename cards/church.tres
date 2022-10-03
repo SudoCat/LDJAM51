@@ -19,5 +19,5 @@ name = "church"
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
 effects = [ SubResource( 1 ) ]
-tags = [  ]
+tags = [ "temple", "temple 1" ]
 base_points = 4
