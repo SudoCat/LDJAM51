@@ -160,7 +160,8 @@ func hide_score():
 func evaluate_score():
 	var score = 0
 	for plot in claimed:
-		score += plot.evaluate_score()
+		if plot.district != game.current_district:
+			score += plot.evaluate_score()
 	return score
 
 func play_win_bark():
