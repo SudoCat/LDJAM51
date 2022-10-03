@@ -24,7 +24,7 @@ tile_area_of_affect = 1
 [resource]
 script = ExtResource( 1 )
 name = "Supermarket"
-description = ""
+description = "+ 3 for touching residential"
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
 effects = [ SubResource( 1 ), SubResource( 2 ) ]

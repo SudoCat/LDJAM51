@@ -33,7 +33,9 @@ points = 4
 [resource]
 script = ExtResource( 1 )
 name = ""
-description = ""
+description = "+ 2 for every adjacent residential and temple
++ 1 for every adjacent garden
++ 4 if there are more gardens than shops and industry buildings in district"
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
 effects = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]

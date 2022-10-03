@@ -9,7 +9,8 @@
 [resource]
 script = ExtResource( 1 )
 name = ""
-description = ""
+description = "+ 1 for extra residential
++ 2 for any other evil or magic buildings in district"
 card_image = ExtResource( 2 )
 building = ExtResource( 4 )
 effects = [ ExtResource( 3 ), ExtResource( 5 ) ]
