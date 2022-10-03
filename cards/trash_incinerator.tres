@@ -10,5 +10,5 @@ name = ""
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
 effects = [  ]
-tags = [  ]
+tags = [ "trash incinerator" ]
 base_points = 1
