@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/City final 1b (no ohs).wav-c76e0493f4557eac05429f6b9a40fe82.sample"
+
+[deps]
+
+source_file="res://music/City final 1b (no ohs).wav"
+dest_files=[ "res://.import/City final 1b (no ohs).wav-c76e0493f4557eac05429f6b9a40fe82.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

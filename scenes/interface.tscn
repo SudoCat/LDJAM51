@@ -137,6 +137,7 @@ text = "Next District"
 script = ExtResource( 12 )
 
 [node name="Game_End" type="Panel" parent="."]
+visible = false
 margin_left = 290.0
 margin_top = 740.0
 margin_right = 1920.0
