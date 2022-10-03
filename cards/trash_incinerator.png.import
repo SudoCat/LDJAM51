@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/church.png-5bfd96203552e6099ab82cd99cf0e899.stex"
+path="res://.import/trash_incinerator.png-f591ae86484de65a6f414cd45d4f9983.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/church.png"
-dest_files=[ "res://.import/church.png-5bfd96203552e6099ab82cd99cf0e899.stex" ]
+source_file="res://cards/trash_incinerator.png"
+dest_files=[ "res://.import/trash_incinerator.png-f591ae86484de65a6f414cd45d4f9983.stex" ]
 
 [params]
 

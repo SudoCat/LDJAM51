@@ -1,12 +1,13 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://resource_types/deck.gd" type="Script" id=1]
 [ext_resource path="res://cards/residential_city.tres" type="Resource" id=2]
 [ext_resource path="res://cards/church.tres" type="Resource" id=3]
-[ext_resource path="res://cards/open_air_market.tres" type="Resource" id=4]
+[ext_resource path="res://cards/trash_incinerator.tres" type="Resource" id=4]
 [ext_resource path="res://cards/temple.tres" type="Resource" id=5]
+[ext_resource path="res://cards/ominous_floating_cube.tres" type="Resource" id=6]
 
 [resource]
 script = ExtResource( 1 )
 key = ""
-cards = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
+cards = [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
