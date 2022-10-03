@@ -1,15 +1,12 @@
-[gd_resource type="Resource" load_steps=9 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://resource_types/deck.gd" type="Script" id=1]
-[ext_resource path="res://cards/wyrd_cottages.tres" type="Resource" id=2]
-[ext_resource path="res://cards/garden.tres" type="Resource" id=3]
-[ext_resource path="res://cards/night_market.tres" type="Resource" id=4]
-[ext_resource path="res://cards/nature_reserve.tres" type="Resource" id=5]
-[ext_resource path="res://cards/ominous_floating_cube.tres" type="Resource" id=6]
+[ext_resource path="res://cards/church.tres" type="Resource" id=2]
+[ext_resource path="res://cards/temple.tres" type="Resource" id=3]
 [ext_resource path="res://cards/wyrn_terraced_houses.tres" type="Resource" id=7]
 [ext_resource path="res://cards/wyrd_towerblock.tres" type="Resource" id=8]
 
 [resource]
 script = ExtResource( 1 )
 key = ""
-cards = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ) ]
+cards = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ) ]

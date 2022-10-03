@@ -1,9 +1,10 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=8 format=2]
 
 [ext_resource path="res://resource_types/card.gd" type="Script" id=1]
 [ext_resource path="res://cards/temple.png" type="Texture" id=2]
 [ext_resource path="res://assets/temple.glb" type="PackedScene" id=3]
 [ext_resource path="res://resource_types/effect_has_building_nearby.gd" type="Script" id=4]
+[ext_resource path="res://resource_types/effect_if_has_more_in_district.gd" type="Script" id=5]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 4 )
@@ -13,11 +14,20 @@ related_tags = [ "residential" ]
 points = 1
 tile_area_of_affect = 1
 
+[sub_resource type="Resource" id=2]
+script = ExtResource( 5 )
+key = ""
+description = ""
+side_a_related_tags = [ "temple 1" ]
+side_b_related_tags = [ "temple 2" ]
+points = -4
+
 [resource]
 script = ExtResource( 1 )
 name = "church"
+description = ""
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
-effects = [ SubResource( 1 ) ]
+effects = [ SubResource( 1 ), SubResource( 2 ) ]
 tags = [ "temple", "temple 2" ]
 base_points = 4
