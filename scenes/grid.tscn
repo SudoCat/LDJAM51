@@ -29,7 +29,11 @@ size = 10.0
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.27546, 0.684942, -0.674519, 0.104992, 0.718903, 0.687135, 0.955562, 0.118459, -0.269943, 0, 15, 0 )
-light_color = Color( 0.952941, 0.882353, 0.764706, 1 )
+light_color = Color( 0.988235, 0.956863, 0.898039, 1 )
+light_energy = 1.1
+light_specular = 0.8
+shadow_enabled = true
+shadow_color = Color( 0.631373, 0.537255, 0.537255, 1 )
 
 [node name="Interface" parent="." instance=ExtResource( 4 )]
 
