@@ -17,5 +17,5 @@ plot_color = Color( 0.792157, 0.345098, 0.345098, 1 )
 opposition = ""
 claim_barks = [  ]
 build_barks = [  ]
-win_barks = [  ]
-lose_barks = [  ]
+win_barks = [ "woo i did a win" ]
+lose_barks = [ "oh no i did a lose" ]

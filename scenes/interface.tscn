@@ -24,14 +24,14 @@
 texture = ExtResource( 17 )
 region_rect = Rect2( 0, 0, 1920, 1080 )
 
+[sub_resource type="StyleBoxEmpty" id=9]
+
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 16 )
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 15 )
 region_rect = Rect2( 0, 0, 315, 171 )
-
-[sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="Theme" id=1]
 /fonts/MainText = ExtResource( 3 )
@@ -69,6 +69,23 @@ anchor_bottom = 1.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 8 )
 
+[node name="ActorListUI" type="Panel" parent="."]
+margin_left = 290.0
+margin_top = 880.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 9 )
+script = ExtResource( 4 )
+
+[node name="VFlowContainer2" type="HFlowContainer" parent="ActorListUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = 20.0
+margin_right = -19.0
+margin_bottom = -20.0
+
 [node name="HandUI" type="Panel" parent="."]
 margin_right = 374.0
 margin_bottom = 1080.0
@@ -83,6 +100,7 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
+custom_constants/vseparation = 40
 
 [node name="Tween" type="Tween" parent="HandUI"]
 
@@ -103,23 +121,6 @@ theme = ExtResource( 1 )
 text = "Day 1"
 align = 1
 valign = 1
-
-[node name="ActorListUI" type="Panel" parent="."]
-margin_left = 290.0
-margin_top = 880.0
-margin_right = 1920.0
-margin_bottom = 1080.0
-theme = ExtResource( 1 )
-custom_styles/panel = SubResource( 9 )
-script = ExtResource( 4 )
-
-[node name="VFlowContainer2" type="HFlowContainer" parent="ActorListUI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 21.0
-margin_top = 20.0
-margin_right = -19.0
-margin_bottom = -20.0
 
 [node name="District_End" type="Panel" parent="."]
 visible = false
@@ -145,44 +146,6 @@ text = "
 scroll_active = false
 
 [node name="NextDistrict" type="Button" parent="District_End"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -197.0
-margin_top = -115.0
-margin_right = -57.0
-margin_bottom = -75.0
-rect_min_size = Vector2( 140, 40 )
-theme = ExtResource( 1 )
-text = "Next District"
-script = ExtResource( 12 )
-
-[node name="Game_End2" type="Panel" parent="."]
-visible = false
-margin_left = 268.0
-margin_top = 504.0
-margin_right = 1920.0
-margin_bottom = 899.0
-theme = ExtResource( 1 )
-custom_styles/panel = ExtResource( 18 )
-
-[node name="Message" type="RichTextLabel" parent="Game_End2"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 70.0
-margin_top = 60.0
-margin_right = -200.0
-margin_bottom = -60.0
-rect_pivot_offset = Vector2( 356, 17 )
-theme = SubResource( 1 )
-custom_fonts/normal_font = SubResource( 3 )
-text = "
-"
-scroll_active = false
-
-[node name="Quit" type="Button" parent="Game_End2"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

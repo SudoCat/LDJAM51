@@ -8,10 +8,10 @@
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 5 )
-key = "residential_city"
-description = ""
-related_tags = [ "trash incinerator" ]
-points = -3
+key = "residential-nearby-residential"
+description = "+1 for all nearby residential buildings."
+related_tags = [ "residential" ]
+points = 1
 tile_area_of_affect = 1
 
 [resource]

@@ -39,13 +39,12 @@ theme = ExtResource( 4 )
 custom_fonts/font = ExtResource( 3 )
 text = "Councillor Name"
 
-[node name="Description" type="Label" parent="VFlowContainer"]
+[node name="Description" type="RichTextLabel" parent="VFlowContainer"]
 margin_top = 126.0
 margin_right = 160.0
-margin_bottom = 157.0
-rect_min_size = Vector2( 160, 0 )
-mouse_filter = 1
+margin_bottom = 180.0
+rect_min_size = Vector2( 0, 54 )
 theme = ExtResource( 4 )
-custom_fonts/font = ExtResource( 2 )
-text = "Description of councillor, spanning multiple lines"
-autowrap = true
+custom_fonts/normal_font = ExtResource( 2 )
+text = "The Skateboarder, gregarious, careful, and caring, a concerned citizen driven to aid, and buoyed by a proud base of popular support and a faith in that which is undeniably real, and undeniably not here with us, but close, maybe even close enough to offer salvation.
+"
