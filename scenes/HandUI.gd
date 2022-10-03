@@ -32,4 +32,4 @@ func toggle_disabled(disabled):
 	var count = container.get_child_count()
 	for i in count:
 		var btn = container.get_child(i) as CardButton
-		btn.disabled = disabled
+		btn.toggle(disabled)

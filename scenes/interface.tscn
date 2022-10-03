@@ -53,8 +53,8 @@ align = 1
 valign = 1
 
 [node name="ActorListUI" type="Panel" parent="."]
-margin_left = 289.0
-margin_top = 900.0
+margin_left = 290.0
+margin_top = 880.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 theme = ExtResource( 1 )
