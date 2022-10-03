@@ -11,4 +11,4 @@ description = ""
 image = ExtResource( 3 )
 deck = ExtResource( 2 )
 plot_color = Color( 0.0862745, 0.290196, 0.388235, 1 )
-opposition = ""
+opposition = "res://councillors/councilor1.tres"
