@@ -59,7 +59,7 @@ func _process(delta):
 	else:
 		# Game loop
 		time_since_start += delta
-		$Interface/Timer/DayCount.text = str('Day ', ceil(time_since_start))
+		$Interface/Timer/DayCount.text = str('Day ', floor(time_since_start))
 	
 func move_viewport():
 	var pos = get_viewport().get_mouse_position()
