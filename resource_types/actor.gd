@@ -9,6 +9,7 @@ export(Resource) var deck
 #export(Dictionary) var traits
 #export(float, 0, 10, 0.1) var decisiveness
 #export(float, 0, 10, 0.1) var thoughtfulness
+export(float, 0, 1, 0.05) var talkativeness
 export(Color) var plot_color
 export(String, FILE, "*.tres") var opposition
 export(Array, String) var claim_barks

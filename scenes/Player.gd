@@ -40,6 +40,9 @@ func perform_turn():
 		selected_plot.build(get_selected_card())
 		use_card(selected_card_index)
 		selected_plot = null
+		if rng.randf() < actor.talkativeness:
+			var bark = actor.build_barks[rng.randi() % actor.build_barks]
+			print(bark)
 	# draw new card
 	if hand.size() < 3:
 		draw_card()
@@ -73,6 +76,10 @@ func select_plot(plot):
 			remove_card_preview()
 			game.hand.disable()
 		selected_plot.claim(self, get_selected_card())
+		if rng.randf() < actor.talkativeness:
+			var bark = actor.claim_barks[rng.randi() % actor.claim_barks]
+			print(bark)
+			
 		#selected_plot.connect("plot_claimed", self, "on_Plot_plot_claimed")
 
 func on_Plot_plot_claimed():
@@ -128,11 +135,11 @@ func brain():
 		brain_think_delay = max(rng.randf_range(current_turn_time + 1, current_turn_time + 3), 9)
 		
 func make_choice():
-	if rng.randf() > 0.1:
+	if rng.randf() > 0.2:
 		randomize()
 		hand.shuffle()
 		select_card(0)
-	if selected_card_index != -1 && rng.randf() > 0.1:
+	if selected_card_index != -1 && rng.randf() > 0.2:
 		select_plot(find_desirable_plot())
 
 func find_desirable_plot():
@@ -158,3 +165,13 @@ func evaluate_score():
 	for plot in claimed:
 		score += plot.evaluate_score()
 	return score
+
+func get_win_bark():
+	if rng.randf() < actor.talkativeness:
+		var bark = actor.win_barks[rng.randi() % actor.win_barks]
+		print(bark)
+
+func get_loss_bark():
+	if rng.randf() < actor.talkativeness:
+		var bark = actor.lose_barks[rng.randi() % actor.lose_barks]
+		print(bark)
