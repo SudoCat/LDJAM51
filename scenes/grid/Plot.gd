@@ -31,12 +31,12 @@ func get_xform_aabb():
 	return $grass.transform.xform($grass/tmpParent/grass.get_aabb())
 
 func _on_Body_mouse_entered():
-	if game.player.selected_plot != self:
-		focus()
+	print("enter" + name)
+	focus()
 	
 func _on_Body_mouse_exited():
-	if game.player.selected_plot != self:
-		blur()
+	print("exit" + name)
+	blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):
 	if claimed():
@@ -119,7 +119,12 @@ func build(card: Card):
 	anchor_building_to_plot(instance)
 	place = instance
 	emit_signal("plot_claimed")
-	$Placeholder.hide()
+	tween.interpolate_property(
+		$Placeholder, "translation:y",
+		0.9, -1,
+		0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+	)
+	tween.start()
 
 	print('score', card.evaluate_score(self))
 	

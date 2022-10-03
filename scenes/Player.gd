@@ -103,12 +103,13 @@ func spawn_card_preview():
 		return
 	var card: Card = hand[selected_card_index]
 	preview_building = card.building.instance()
+	preview_building.transform.origin = Vector3(1000, 1000, 1000)
 	$Preview.add_child(preview_building)
 	
 func remove_card_preview():
 	preview_building.queue_free()
 	preview_building = null
-	$Preview.transform.origin = Vector3(100, 100, 100)
+	$Preview.transform.origin = Vector3(1000, 1000, 1000)
 
 
 

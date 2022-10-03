@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/District.gd" type="Script" id=1]
 [ext_resource path="res://actors/councilor3.tres" type="Resource" id=2]
@@ -7,6 +7,12 @@
 [ext_resource path="res://actors/councilor4.tres" type="Resource" id=5]
 [ext_resource path="res://actors/councilor2.tres" type="Resource" id=6]
 [ext_resource path="res://actors/councilor1.tres" type="Resource" id=7]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 200, 200 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.12549, 0.141176, 0.192157, 1 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 3 )
@@ -26,3 +32,7 @@ transform = Transform( -0.27546, 0.684942, -0.674519, 0.104992, 0.718903, 0.6871
 light_color = Color( 0.952941, 0.882353, 0.764706, 1 )
 
 [node name="Interface" parent="." instance=ExtResource( 4 )]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
