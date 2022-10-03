@@ -2,7 +2,7 @@
 
 [ext_resource path="res://resource_types/actor.gd" type="Script" id=1]
 [ext_resource path="res://councillors/originals/Councilor2.jpg" type="Texture" id=2]
-[ext_resource path="res://decks/basic.tres" type="Resource" id=3]
+[ext_resource path="res://decks/base_deck.tres" type="Resource" id=3]
 [ext_resource path="res://councillors/councilor2.png" type="Texture" id=4]
 
 [resource]

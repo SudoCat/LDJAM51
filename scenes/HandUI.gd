@@ -22,7 +22,7 @@ func remove_card(index):
 		var child: CardButton = container.get_child(i);
 		$Tween.interpolate_property(
 			child, "rect_position:y",
-			child.rect_position.y, child.rect_position.y - child.rect_size.y - 4,
+			child.rect_position.y, child.rect_position.y - child.rect_size.y - 40,
 			0.3, Tween.TRANS_QUINT, Tween.EASE_IN_OUT
 		)
 	$Tween.start()

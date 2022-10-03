@@ -7,9 +7,9 @@
 [resource]
 script = ExtResource( 1 )
 name = ""
-description = ""
+description = "No (non-wyrd or magic)Residential, Recreation, or Shops adjacent score base points"
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
 effects = [  ]
-tags = [ "trash incinerator" ]
+tags = [ "trash incinerator", "industry" ]
 base_points = 1

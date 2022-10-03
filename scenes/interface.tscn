@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/base_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/HandUI.gd" type="Script" id=2]
@@ -19,19 +19,21 @@
 [ext_resource path="res://ui/Bottom.png" type="Texture" id=17]
 [ext_resource path="res://styles/big_box_boi.tres" type="StyleBox" id=18]
 [ext_resource path="res://ui/Text box low.png" type="Texture" id=19]
+[ext_resource path="res://logo.png" type="Texture" id=20]
 
 [sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 17 )
 region_rect = Rect2( 0, 0, 1920, 1080 )
 
+[sub_resource type="StyleBoxEmpty" id=9]
+
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 374, 1080 )
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 15 )
 region_rect = Rect2( 0, 0, 315, 171 )
-
-[sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="Theme" id=1]
 /fonts/MainText = ExtResource( 3 )
@@ -69,6 +71,23 @@ anchor_bottom = 1.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 8 )
 
+[node name="ActorListUI" type="Panel" parent="."]
+margin_left = 290.0
+margin_top = 880.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 9 )
+script = ExtResource( 4 )
+
+[node name="VFlowContainer2" type="HFlowContainer" parent="ActorListUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = 20.0
+margin_right = -19.0
+margin_bottom = -20.0
+
 [node name="HandUI" type="Panel" parent="."]
 margin_right = 374.0
 margin_bottom = 1080.0
@@ -83,6 +102,7 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
+custom_constants/vseparation = 40
 
 [node name="Tween" type="Tween" parent="HandUI"]
 
@@ -100,26 +120,13 @@ margin_top = 5.0
 margin_right = 214.0
 margin_bottom = 88.0
 theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.353821, 0.348145, 0.484375, 1 )
+custom_colors/font_color_shadow = Color( 0.72549, 0.698039, 0.776471, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 3
 text = "Day 1"
 align = 1
 valign = 1
-
-[node name="ActorListUI" type="Panel" parent="."]
-margin_left = 290.0
-margin_top = 880.0
-margin_right = 1920.0
-margin_bottom = 1080.0
-theme = ExtResource( 1 )
-custom_styles/panel = SubResource( 9 )
-script = ExtResource( 4 )
-
-[node name="VFlowContainer2" type="HFlowContainer" parent="ActorListUI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 21.0
-margin_top = 20.0
-margin_right = -19.0
-margin_bottom = -20.0
 
 [node name="District_End" type="Panel" parent="."]
 visible = false
@@ -145,44 +152,6 @@ text = "
 scroll_active = false
 
 [node name="NextDistrict" type="Button" parent="District_End"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -197.0
-margin_top = -115.0
-margin_right = -57.0
-margin_bottom = -75.0
-rect_min_size = Vector2( 140, 40 )
-theme = ExtResource( 1 )
-text = "Next District"
-script = ExtResource( 12 )
-
-[node name="Game_End2" type="Panel" parent="."]
-visible = false
-margin_left = 268.0
-margin_top = 504.0
-margin_right = 1920.0
-margin_bottom = 899.0
-theme = ExtResource( 1 )
-custom_styles/panel = ExtResource( 18 )
-
-[node name="Message" type="RichTextLabel" parent="Game_End2"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 70.0
-margin_top = 60.0
-margin_right = -200.0
-margin_bottom = -60.0
-rect_pivot_offset = Vector2( 356, 17 )
-theme = SubResource( 1 )
-custom_fonts/normal_font = SubResource( 3 )
-text = "
-"
-scroll_active = false
-
-[node name="Quit" type="Button" parent="Game_End2"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -252,7 +221,7 @@ margin_top = 54.0
 margin_right = 586.0
 margin_bottom = 120.0
 theme = ExtResource( 1 )
-custom_colors/font_color = Color( 0.276093, 0.281822, 0.324219, 1 )
+custom_colors/font_color = Color( 0.27451, 0.282353, 0.32549, 1 )
 custom_fonts/font = ExtResource( 14 )
 text = "Who joins you on the council?"
 
@@ -297,3 +266,9 @@ You are called, by lottery, from somewhen else, to serve upon the council, to he
 
 (WE LAY OUR FOUNDATIONS IN ASH OR BLOOD OR SHATTERED TIME BUT WE LAY THEM ALL THE SAME) "
 autowrap = true
+
+[node name="Logo" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 20 )
