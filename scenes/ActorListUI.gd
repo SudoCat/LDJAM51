@@ -8,6 +8,6 @@ func add(player):
 	var actor = player.actor
 	var instance = template.instance()
 	instance.get_node('Image').texture = actor.image
-	instance.move_local_x(container.get_child_count() * 146)
+	#instance.move_local_x(container.get_child_count() * 146)
 	container.add_child(instance)
 	player.avatar_ui = instance

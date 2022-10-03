@@ -28,6 +28,7 @@ func _process(delta):
 	if current_turn_time > 10:
 		perform_turn()
 		current_turn_time = 0
+	avatar_ui.set_turn_time(current_turn_time)
 
 func set_offset(duration):
 	current_turn_time = -duration

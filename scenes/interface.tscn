@@ -57,9 +57,10 @@ margin_left = 289.0
 margin_top = 900.0
 margin_right = 1920.0
 margin_bottom = 1080.0
+theme = ExtResource( 1 )
 script = ExtResource( 4 )
 
-[node name="VFlowContainer2" type="VFlowContainer" parent="ActorListUI"]
+[node name="VFlowContainer2" type="HFlowContainer" parent="ActorListUI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 21.0
