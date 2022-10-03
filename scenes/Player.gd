@@ -171,6 +171,8 @@ func play_loss_bark():
 	play_bark(actor.lose_barks)
 
 func play_bark(list):
+	if !list || list.empty():
+		return
 	if rng.randf() < 1:
 		var bark = list[rng.randi() % list.size()]
 		avatar_ui.bark(bark)
