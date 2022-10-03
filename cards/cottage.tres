@@ -10,7 +10,7 @@
 script = ExtResource( 5 )
 key = "cottage-nearby-trash-incinerator"
 description = ""
-related_tags = [ "trash incinderator" ]
+related_tags = [ "trash incinerator" ]
 points = -1
 tile_area_of_affect = 1
 
@@ -20,5 +20,5 @@ name = ""
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
 effects = [ ExtResource( 4 ), SubResource( 1 ) ]
-tags = [  ]
+tags = [ "residential" ]
 base_points = 1

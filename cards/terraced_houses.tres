@@ -10,8 +10,8 @@
 script = ExtResource( 5 )
 key = "terraced-house-near-trash-incinerator"
 description = ""
-related_tags = [ "trash incinderator" ]
-points = -1
+related_tags = [ "trash incinerator" ]
+points = -2
 tile_area_of_affect = 1
 
 [resource]

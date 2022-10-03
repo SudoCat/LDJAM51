@@ -17,9 +17,9 @@ tile_area_of_affect = 1
 script = ExtResource( 4 )
 key = "cornershop-near-incinerator"
 description = ""
-related_tags = [  ]
-points = 0
-tile_area_of_affect = 0
+related_tags = [ "trash incinerator" ]
+points = -2
+tile_area_of_affect = 1
 
 [resource]
 script = ExtResource( 1 )
