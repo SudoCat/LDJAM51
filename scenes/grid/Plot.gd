@@ -137,11 +137,10 @@ func claim(player, card):
 		0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 	)
 	tween.start()
-	$"Viewport/Control/Card Button".set_card(card)
 
 func set_card(card: Card):
 	placed_card = card
-	$"Viewport/Control/Card Button".set_card(card)
+	$"Viewport/Popup/Label".text = card.description
 
 func build(card: Card):
 	set_card(card)
