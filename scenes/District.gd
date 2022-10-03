@@ -56,7 +56,7 @@ func reveal_plots():
 		#0.5 + 0.07 * abs(middle_index - i)
 		var delay = 0.5 + 0.15 * distance
 		$Tween.interpolate_property(
-			plots[i], "translate:y",
+			plots[i], "translation:y",
 			-2, 0,
 			0.5, Tween.TRANS_BOUNCE, Tween.EASE_OUT, delay
 		)
