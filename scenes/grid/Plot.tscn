@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/grid/grass.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/grid/Plot.gd" type="Script" id=2]
 [ext_resource path="res://cards/char.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Card Button.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CylinderShape" id=1]
 height = 0.8
@@ -12,6 +13,19 @@ height = 0.4
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 2, 2 )
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="SpatialMaterial" id=6]
+resource_local_to_scene = true
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+albedo_texture = SubResource( 5 )
 
 [node name="Plot" type="Spatial"]
 script = ExtResource( 2 )
@@ -41,3 +55,18 @@ material_overlay = SubResource( 3 )
 width = 1.0
 height = 1.0
 depth = 1.0
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 250, 282 )
+render_target_v_flip = true
+
+[node name="Control" type="Control" parent="Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Card Button" parent="Viewport/Control" instance=ExtResource( 4 )]
+
+[node name="CardPreview" type="MeshInstance" parent="."]
+transform = Transform( 0, 0, -0.612372, 0, 0, 0.5, 0, 0, -0.612372, 0, 3, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 6 )

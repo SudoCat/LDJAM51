@@ -31,11 +31,9 @@ func get_xform_aabb():
 	return $grass.transform.xform($grass/tmpParent/grass.get_aabb())
 
 func _on_Body_mouse_entered():
-	print("enter" + name)
 	focus()
 	
 func _on_Body_mouse_exited():
-	print("exit" + name)
 	blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):
@@ -56,6 +54,18 @@ func focus():
 		)
 		tween.start()
 		show_preview_building()
+	elif place:
+		tween.interpolate_property(
+			$CardPreview, "scale:x",
+			0, 1,
+			0.2, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT
+		)
+		tween.interpolate_property(
+			$CardPreview, "scale:y",
+			0, 1,
+			0.2, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT
+		)
+		tween.start()
 	mesh.get_active_material(0).albedo_color *= multiplier
 	mesh.get_active_material(1).albedo_color *= multiplier
 	is_focused = true
@@ -73,6 +83,16 @@ func blur():
 		self, "translation:y", 
 		self.translation.y, 0, 
 		0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+	)
+	tween.interpolate_property(
+		$CardPreview, "scale:x",
+		$CardPreview.scale.x, 0,
+		0.2, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT
+	)
+	tween.interpolate_property(
+		$CardPreview, "scale:y",
+		$CardPreview.scale.y, 0,
+		0.2, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT
 	)
 	tween.start()
 	hide_preview_building()
@@ -111,6 +131,7 @@ func claim(player, card):
 		0.2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 	)
 	tween.start()
+	$"Viewport/Control/Card Button".set_card(card)
 
 func build(card: Card):
 	is_claimed = true

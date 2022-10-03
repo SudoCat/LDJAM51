@@ -24,8 +24,8 @@ func _ready():
 	
 	connect_to_plots()
 	add_monument()
-			
-			
+
+
 func create_plot(x,z,_i,offset):
 	var plot = plot_scene.instance() as Plot
 	var size = plot.get_xform_aabb().size
@@ -39,18 +39,17 @@ func create_plot(x,z,_i,offset):
 	plot.transform.origin = position
 	add_child(plot)
 	plots.append(plot)
-	
+
 func connect_to_plots():
 	for plot in plots:
 		plot.connect("plot_claimed", self, "on_Plot_plot_claimed")
-	
+
 func add_monument():
 	var middle = ceil(plots.size()/2)
 	plots[middle].build(monument_card)
-	
+
 func on_Plot_plot_claimed():
 	plots_claimed += 1
 	
 	if plots_claimed >= plots.size():
 		full = true
-	
