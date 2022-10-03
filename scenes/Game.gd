@@ -52,6 +52,7 @@ func add_player(is_human):
 var edge_size = 10;
 
 func _process(delta):
+	move_viewport()
 	if current_district.full:
 		$Interface/District_End.show()
 		for player in players:
@@ -60,20 +61,21 @@ func _process(delta):
 	else:
 		# Game loop
 		time_since_start += delta
-		$Interface/Timer/DayCount.text = str('Day ', ceil(time_since_start))
+		$Interface/Timer/DayCount.text = str('Day ', floor(time_since_start))
 	
 func move_viewport():
 	var pos = get_viewport().get_mouse_position()
 	var distance = 0.01
+	var rad = deg2rad(45)
 	if pos.x < edge_size:
-		$Camera.transform.origin += Vector3(distance, 0, 0).rotated(Vector3.UP, 0)
+		$Camera.transform.origin += Vector3(distance, 0, 0).rotated(Vector3.UP, rad)
 	elif (pos.x > get_viewport().size.x - edge_size):
-		$Camera.transform.origin += Vector3(distance, 0, 0).rotated(Vector3.UP, -135)
+		$Camera.transform.origin += Vector3(-distance, 0, 0).rotated(Vector3.UP, rad)
 	
 	if pos.y < edge_size:
-		$Camera.transform.origin += Vector3(0, 0, -distance).rotated(Vector3.UP, -135)
+		$Camera.transform.origin += Vector3(0, 0, distance).rotated(Vector3.UP, rad)
 	elif (pos.y > get_viewport().size.y - edge_size):
-		$Camera.transform.origin += Vector3(0, 0, distance).rotated(Vector3.UP, -135)
+		$Camera.transform.origin += Vector3(0, 0, -distance).rotated(Vector3.UP, rad)
 
 #func _input(event):
 #	if event is InputEventMouseMotion:
