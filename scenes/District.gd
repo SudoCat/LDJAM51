@@ -51,6 +51,6 @@ func add_monument():
 func on_Plot_plot_claimed():
 	plots_claimed += 1
 	
-	if plots_claimed >= plots.size():
+	if plots_claimed >= 9:
 		full = true
 	

@@ -54,6 +54,8 @@ var edge_size = 10;
 func _process(delta):
 	if current_district.full:
 		$Interface/District_End.show()
+		for player in players:
+			print(player.evaluate_score())
 		set_process(false)
 	else:
 		# Game loop

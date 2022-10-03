@@ -99,6 +99,7 @@ func claim(player, card):
 	blur()
 	$Placeholder.show()
 	claimed_by = player
+	claimed_by.claimed.append(self)
 	var mat = mesh.get_active_material(1)
 	tween.interpolate_property(
 			mat, "albedo_color", 
@@ -113,15 +114,18 @@ func claim(player, card):
 	tween.start()
 
 func build(card: Card):
-	is_claimed = true
 	var instance: Spatial = card.building.instance()
 	add_child(instance)
 	anchor_building_to_plot(instance)
 	place = instance
 	emit_signal("plot_claimed")
 	$Placeholder.hide()
-
-	print('score', card.evaluate_score(self))
+	
+	if claimed_by:
+		print('score', evaluate_score())
+	
+func evaluate_score():
+	return placed_card.evaluate_score(self)
 	
 func get_nearby(plot_radius):
 	var search_area = self.get_node('DetectNearbyPlots')
