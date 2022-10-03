@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/church.png-5bfd96203552e6099ab82cd99cf0e899.stex"
+path="res://.import/player_councilor.png-9059151b4da94a8f728b3e8d1c33436e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/church.png"
-dest_files=[ "res://.import/church.png-5bfd96203552e6099ab82cd99cf0e899.stex" ]
+source_file="res://councillors/player_councilor.png"
+dest_files=[ "res://.import/player_councilor.png-9059151b4da94a8f728b3e8d1c33436e.stex" ]
 
 [params]
 

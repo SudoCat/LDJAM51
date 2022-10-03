@@ -3,7 +3,7 @@
 [ext_resource path="res://resource_types/actor.gd" type="Script" id=1]
 [ext_resource path="res://councillors/originals/player_councillor.jpg" type="Texture" id=2]
 [ext_resource path="res://decks/basic.tres" type="Resource" id=3]
-[ext_resource path="res://cards/char.png" type="Texture" id=4]
+[ext_resource path="res://councillors/player_councilor.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -17,5 +17,12 @@ plot_color = Color( 0.792157, 0.345098, 0.345098, 1 )
 opposition = ""
 claim_barks = [  ]
 build_barks = [  ]
-win_barks = [  ]
-lose_barks = [  ]
+win_barks = [ "Construction in the {district_name} draws to a close, plans will be drafted and we will keep growing {city_name}. But we see now the totality of {district_name},
+
+a success, rich in life, a strong new limb for our ever growing city, it is enough to keep the cherubim at bay, to save all but our most erstwhile and curious citizens from the things only a city can keep out. It is a time to celebrate and; 
+It is {winning_councillor} whose parade draws the greatest crowd, anointed in the traditional mix of honey and pomegranate seeds they stand proud, amidst what they've made." ]
+lose_barks = [ "Construction in the {district_name} draws to a close, plans will be drafted and we will keep growing {city_name}. But we see now the totality of {district_name},
+
+a failure, turmoil and chaos, rotten on the vine of {city_name} it is no home nor fortification, it is a doorway, through which the Mason Dancers have slipped in, there is blood and laughter in the streets, for as long as they remain streets. Before this though, we learn of premature celebrations; 
+
+It is {winning_councillor} whose parade draws the greatest crowd, anointed in the traditional mix of honey and pomegranate seeds they stand proud, amidst what they've made." ]

@@ -38,8 +38,8 @@ You are called, by lottery, from somewhen else, to serve upon the council, to he
 
 (WE LAY OUR FOUNDATIONS IN ASH OR BLOOD OR SHATTERED TIME BUT WE LAY THEM ALL THE SAME) 
 "
-city_names = [ "", "", "" ]
-district_names = [ "", "", "" ]
+city_names = [ "Rotchester", "Vileham", "New Brighton", "Ashreach", "Wasp", "Justice Meted", "Scorchbourne", "Sallow Cowardice", "Gladtown", "First and Foremost", "Vernal", "Bloody Stump", "Stolas' Outcry", "Saltspire", "Thronecroft", "Maidenvessel", "Claypot", "Vile Sunbridge Wells", "Sundercroft", "The City of Mirth" ]
+district_names = [ "The Sapphire Quarter", "Barnard's Folly", "Wilting Heights", "Vacuous Rise", "Fourspike Hill", "Bleakfields", "Mycellum Gate", "Bad Town", "August Spit", "The Flesh Quarter", "The Shadow Quarter", "The Mothhaunt", "Marquis' Bane", "Little Tartarus", "Shamblers Rise", "Forlorn Hill", "Yew Spate", "The Carapace Quarter", "Little Golgotha", "Dead Angel Patch", "Forked Rise", "Serpents Gate", "Charfields", "Cedar Bane", "Snodten", "The Feral Quarter", "Swan Gate", "Smokers Rise", "The Sighing Quarter", "Devils Watch" ]
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -3, 13, -7 )
