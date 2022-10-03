@@ -109,7 +109,7 @@ func spawn_card_preview():
 func remove_card_preview():
 	preview_building.queue_free()
 	preview_building = null
-	$Preview.transform.origin = Vector3(1000, 1000, 1000)
+	$Preview.transform.origin = Vector3(100, 1000, 1000)
 
 
 
