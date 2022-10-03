@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/base_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/HandUI.gd" type="Script" id=2]
@@ -13,9 +13,25 @@
 [ext_resource path="res://councillors/councilor1.tres" type="Resource" id=11]
 [ext_resource path="res://scenes/NextDistrict.gd" type="Script" id=12]
 [ext_resource path="res://assets/fonts/Crimson_Text/CrimsonText-Bold.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://assets/fonts/Crimson_Text/crimson_semibold_huge.tres" type="DynamicFont" id=14]
+[ext_resource path="res://ui/Day counter.png" type="Texture" id=15]
+[ext_resource path="res://ui/Side bar.png" type="Texture" id=16]
+[ext_resource path="res://ui/Bottom.png" type="Texture" id=17]
+[ext_resource path="res://styles/big_box_boi.tres" type="StyleBox" id=18]
+[ext_resource path="res://ui/Text box low.png" type="Texture" id=19]
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.713726, 0.580392, 0.482353, 1 )
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 1920, 1080 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 16 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 315, 171 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="Theme" id=1]
 /fonts/MainText = ExtResource( 3 )
@@ -26,6 +42,10 @@ RichTextLabel/fonts/normal_font = ExtResource( 3 )
 size = 20
 font_data = ExtResource( 5 )
 
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 1645, 187 )
+
 [sub_resource type="DynamicFont" id=4]
 size = 60
 font_data = ExtResource( 13 )
@@ -34,15 +54,26 @@ font_data = ExtResource( 13 )
 size = 24
 font_data = ExtResource( 5 )
 
+[sub_resource type="DynamicFont" id=12]
+size = 24
+font_data = ExtResource( 5 )
+
 [node name="Interface" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 8 )
+
 [node name="HandUI" type="Panel" parent="."]
-margin_right = 290.0
+margin_right = 374.0
 margin_bottom = 1080.0
 theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 7 )
 script = ExtResource( 2 )
 
 [node name="VFlowContainer" type="VFlowContainer" parent="HandUI"]
@@ -61,12 +92,13 @@ anchor_right = 1.0
 margin_left = -220.0
 margin_bottom = 140.0
 theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 6 )
 
 [node name="DayCount" type="Label" parent="Timer"]
-margin_left = 31.0
-margin_top = 27.0
-margin_right = 192.0
-margin_bottom = 110.0
+margin_left = 53.0
+margin_top = 5.0
+margin_right = 214.0
+margin_bottom = 88.0
 theme = ExtResource( 1 )
 text = "Day 1"
 align = 1
@@ -78,6 +110,7 @@ margin_top = 880.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 9 )
 script = ExtResource( 4 )
 
 [node name="VFlowContainer2" type="HFlowContainer" parent="ActorListUI"]
@@ -90,111 +123,114 @@ margin_bottom = -20.0
 
 [node name="District_End" type="Panel" parent="."]
 visible = false
-margin_left = 290.0
-margin_top = 740.0
+margin_left = 268.0
+margin_top = 504.0
 margin_right = 1920.0
-margin_bottom = 880.0
+margin_bottom = 899.0
 theme = ExtResource( 1 )
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = ExtResource( 18 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="District_End"]
-anchor_right = 0.054
-anchor_bottom = 0.102
-margin_left = 39.0
-margin_top = 31.0
-margin_right = 794.926
-margin_bottom = 51.026
-rect_pivot_offset = Vector2( 356, 17 )
-theme = SubResource( 1 )
-text = "Forked Rise District is now full."
-scroll_active = false
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="District_End"]
-anchor_right = 0.054
-anchor_bottom = 0.102
-margin_left = 38.0
-margin_top = 69.0
-margin_right = 793.926
-margin_bottom = 89.026
+[node name="Message" type="RichTextLabel" parent="District_End"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 70.0
+margin_top = 60.0
+margin_right = -200.0
+margin_bottom = -60.0
 rect_pivot_offset = Vector2( 356, 17 )
 theme = SubResource( 1 )
 custom_fonts/normal_font = SubResource( 3 )
-text = "Have at it Chris, Lorem ipsum set demet lalalalallalalalal"
+text = "
+"
 scroll_active = false
 
 [node name="NextDistrict" type="Button" parent="District_End"]
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -160.0
-margin_top = -20.0
-margin_right = -20.0
-margin_bottom = 20.0
+anchor_bottom = 1.0
+margin_left = -197.0
+margin_top = -115.0
+margin_right = -57.0
+margin_bottom = -75.0
 rect_min_size = Vector2( 140, 40 )
 theme = ExtResource( 1 )
 text = "Next District"
 script = ExtResource( 12 )
 
-[node name="Game_End" type="Panel" parent="."]
+[node name="Game_End2" type="Panel" parent="."]
 visible = false
-margin_left = 290.0
-margin_top = 740.0
+margin_left = 268.0
+margin_top = 504.0
 margin_right = 1920.0
-margin_bottom = 880.0
+margin_bottom = 899.0
 theme = ExtResource( 1 )
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = ExtResource( 18 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Game_End"]
-anchor_right = 0.054
-anchor_bottom = 0.102
-margin_left = 39.0
-margin_top = 31.0
-margin_right = 794.926
-margin_bottom = 51.026
-rect_pivot_offset = Vector2( 356, 17 )
-theme = SubResource( 1 )
-text = "Forked Rise District is now full."
-scroll_active = false
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Game_End"]
-anchor_right = 0.054
-anchor_bottom = 0.102
-margin_left = 38.0
-margin_top = 69.0
-margin_right = 793.926
-margin_bottom = 89.026
+[node name="Message" type="RichTextLabel" parent="Game_End2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 70.0
+margin_top = 60.0
+margin_right = -200.0
+margin_bottom = -60.0
 rect_pivot_offset = Vector2( 356, 17 )
 theme = SubResource( 1 )
 custom_fonts/normal_font = SubResource( 3 )
-text = "Have at it Chris, Lorem ipsum set demet lalalalallalalalal"
+text = "
+"
 scroll_active = false
 
-[node name="Quit" type="Button" parent="Game_End"]
+[node name="Quit" type="Button" parent="Game_End2"]
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -160.0
-margin_top = -20.0
-margin_right = -20.0
-margin_bottom = 20.0
+anchor_bottom = 1.0
+margin_left = -197.0
+margin_top = -115.0
+margin_right = -57.0
+margin_bottom = -75.0
 rect_min_size = Vector2( 140, 40 )
 theme = ExtResource( 1 )
-text = "Finish"
+text = "Next District"
 script = ExtResource( 12 )
+
+[node name="CouncillorJoined" type="Panel" parent="."]
+visible = false
+margin_left = 272.0
+margin_top = 712.0
+margin_right = 1917.0
+margin_bottom = 899.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 11 )
+
+[node name="Message" type="RichTextLabel" parent="CouncillorJoined"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 70.0
+margin_top = 60.0
+margin_right = -61.0
+margin_bottom = -60.0
+rect_pivot_offset = Vector2( 356, 17 )
+theme = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "
+"
+scroll_active = false
 
 [node name="CouncillorSelect" type="Panel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.4
 anchor_right = 0.5
 anchor_bottom = 0.4
-margin_left = -320.0
-margin_top = -240.0
-margin_right = 320.0
-margin_bottom = 240.0
+margin_left = -692.0
+margin_top = 72.0
+margin_right = 960.0
+margin_bottom = 467.0
 rect_pivot_offset = Vector2( 320, 240 )
 theme = ExtResource( 1 )
+custom_styles/panel = ExtResource( 18 )
 script = ExtResource( 6 )
 councillors = [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ]
 button_resource = ExtResource( 7 )
@@ -202,13 +238,23 @@ button_resource = ExtResource( 7 )
 [node name="GridContainer" type="GridContainer" parent="CouncillorSelect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 30.0
-margin_top = 30.0
-margin_right = -30.0
-margin_bottom = -30.0
+margin_left = 80.0
+margin_top = 120.0
+margin_right = -60.0
+margin_bottom = -60.0
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
-columns = 3
+columns = 6
+
+[node name="Label" type="Label" parent="CouncillorSelect"]
+margin_left = 70.0
+margin_top = 54.0
+margin_right = 586.0
+margin_bottom = 120.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.276093, 0.281822, 0.324219, 1 )
+custom_fonts/font = ExtResource( 14 )
+text = "Who joins you on the council?"
 
 [node name="Credits" type="Panel" parent="."]
 visible = false
@@ -236,12 +282,18 @@ Music & Sound: Rob Nuttal
 PROGRAMMING: Robin Neal @_SudoCat
 PROGRAMMING & MODELLING: Lizzie Davison"
 
-[node name="Summary" type="Label" parent="Credits"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 40.0
-margin_right = -40.0
-margin_bottom = -200.0
+[node name="Intro" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 391.0
+margin_top = 27.0
+margin_right = 1675.0
+margin_bottom = 479.0
 theme = ExtResource( 1 )
-text = "Some flavour text to wrap up the story"
+custom_fonts/font = SubResource( 12 )
+text = "After the second calamity, a doom of fire and unmooring, the world was changed and ruined, and in the ruin and the change we met new peoples, beckoned from somewhere else. With them we rebuilt the world in a new and alien image. The third calamity scoured it all, and from that we learned that we must be prepared, to survive, and to rebuild. In the fourth calamity we learned that to sacrifice everything for the illusion of safety is to live hell on earth, to build prisons not homes. The fifth calamity put paid to that philosophy. 
+Now after the sixth calamity we emerge from our Bunker-Tombs, little pockets of somewhere else, and we begin the work again. The many necked silver beasts that wrought the world low grow fainter by the day, their reign of gloss and thunder run its course.
+We have lost a lot in the many years, names, coherency, swathes of history, 5 days from every year. In whatever the calamity leaves in its wake we find something new, some new facet of the world. and it is that time again. a time for turning. a time for rebuilding. The City calls, and its name we hear %CITYNAME.
+You are called, by lottery, from somewhen else, to serve upon the council, to help drive the fate of this new city, elected to the first district, to be known as %DISTRICTNAME. You will not be alone in this task. You may be alone in your drive to complete it.
+
+(WE LAY OUR FOUNDATIONS IN ASH OR BLOOD OR SHATTERED TIME BUT WE LAY THEM ALL THE SAME) "
+autowrap = true

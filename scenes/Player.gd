@@ -176,4 +176,7 @@ func play_bark(list):
 		return
 	if rng.randf() < 1:
 		var bark = list[rng.randi() % list.size()]
-		avatar_ui.bark(bark)
+		avatar_ui.bark(bark.format({ 
+			"district_name": game.current_district.district_name, 
+			"city_name": game.city_name 
+		}))

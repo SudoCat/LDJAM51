@@ -17,9 +17,16 @@ var can_pan = false
 var round_active = false
 var edge_size = 15;
 var current_round = 0
+export(Texture) var cursor
+export(String, MULTILINE) var intro_text
+export(Array, String) var city_names
+export(Array, String) var district_names
+var city_name
+var first_district_name
 
 var player_scene = load("res://scenes/Player.tscn")
 var district_scene = load("res://scenes/District.tscn")
+var player_actor = load("res://councillors/player_councillor.tres")
 
 var available_districts = []
 var districts = {
@@ -60,10 +67,22 @@ var districts = {
 }
 
 func _ready():
+	if (cursor):
+		Input.set_custom_mouse_cursor(cursor)
 	hand = get_node("Interface/HandUI")
 	actor_list = get_node("Interface/ActorListUI")
 	current_district = $District
+	
 	prepare()
+	city_name = city_names[randi() % city_names.size()]
+	first_district_name = district_names[randi() % district_names.size()]
+	$Interface/Intro.text = intro_text.format({ "district_name": first_district_name, "city_name": city_name })
+	$Tween.interpolate_property(
+		$Interface/Intro, "modulate:a",
+		0, 1,
+		1, Tween.TRANS_LINEAR, Tween.EASE_IN
+	)
+	$Tween.start()
 	
 func _notification(notif_type):
 	match notif_type:
@@ -75,27 +94,33 @@ func _notification(notif_type):
 func start(councillor):
 	can_pan = true
 	$Interface/CouncillorSelect.hide()
-	add_district(Vector3.ZERO)
+	$Interface/Intro.hide()
+	add_district(first_district_name, Vector3.ZERO)
 	districts["center"].district = current_district
 	available_districts = districts.keys()
 	available_districts.pop_front()
 	var opposition = councillor.get_opposition()
-	player = add_player(councillor, true)
-	add_player(opposition)
+	player = add_player(player_actor, true)
+	add_player(councillor)
 	available_actors.erase(councillor)
 	available_actors.erase(opposition)
 	round_active = true
 	$MusicBox.play_track(0)
 
 func _on_NextDistrict_pressed():
-	start_new_round()
+	if available_districts.size() == 0:
+		$Interface/Credits.show()
+	else:
+		start_new_round()
 	
 func start_new_round():
 	var size = current_district.get_size()
 	var key = available_districts[randi() % available_districts.size()]
 	available_districts.erase(key)
 	var position = districts["center"].district.get_neighbour_start(districts[key].index)
-	districts[key].district = add_district(position)
+	randomize()
+	var district_name = district_names[randi() % district_names.size()]
+	districts[key].district = add_district(district_name, position)
 	add_player(get_random_actor())
 	$Interface/District_End.hide()
 	hide_scores()
@@ -104,11 +129,13 @@ func start_new_round():
 	current_round += 1
 	$MusicBox.play_track(current_round)
 
-func add_district(position):
+func add_district(d_name, position, build = true):
 	var instance = district_scene.instance()
 	add_child(instance)
 	current_district = instance
-	current_district.build()
+	current_district.district_name = d_name
+	if build:
+		current_district.build()
 	current_district.transform.origin = position
 	var camera_pos = current_district.transform.origin + Vector3(-3, 13, -7)
 	$Tween.interpolate_property(

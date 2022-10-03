@@ -2,7 +2,7 @@ extends Resource
 class_name Actor
 
 export(String) var name
-export(String) var description
+export(String, MULTILINE) var description
 export(Texture) var image
 export(Texture) var hoarding
 export(Resource) var deck
@@ -14,8 +14,8 @@ export(Color) var plot_color
 export(String, FILE, "*.tres") var opposition
 export(Array, String) var claim_barks
 export(Array, String) var build_barks
-export(Array, String) var win_barks
-export(Array, String) var lose_barks
+export(Array, String, MULTILINE) var win_barks
+export(Array, String, MULTILINE) var lose_barks
 
 var active_deck: Array
 

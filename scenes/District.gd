@@ -9,6 +9,7 @@ var plots_claimed = 0
 var full = false
 var plot_scene = preload("res://scenes/grid/Plot.tscn")
 var monument_card = preload("res://cards/sample_card.tres")
+var district_name = ""
 
 signal district_full()
 	
