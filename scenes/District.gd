@@ -78,7 +78,7 @@ func add_monument():
 func on_Plot_plot_claimed():
 	plots_claimed += 1
 	
-	if plots_claimed >= 9:
+	if plots_claimed >= plots.size():
 		full = true
 
 enum Direction { NORTH, NORTH_EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, NORTH_WEST }
