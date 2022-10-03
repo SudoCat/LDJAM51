@@ -55,6 +55,8 @@ func _process(delta):
 	move_viewport()
 	if current_district.full:
 		$Interface/District_End.show()
+		for player in players:
+			print(player.evaluate_score())
 		set_process(false)
 	else:
 		# Game loop

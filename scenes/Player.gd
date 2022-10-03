@@ -12,6 +12,7 @@ var is_human: bool
 var current_turn_time = 0
 var hand: Array
 var preview_building: Spatial
+var claimed: Array
 onready var game = get_node("/root/Game")
 
 var brain_think_delay = 0
@@ -111,10 +112,6 @@ func remove_card_preview():
 	preview_building = null
 	$Preview.transform.origin = Vector3(100, 1000, 1000)
 
-
-
-
-
 func brain():
 	if selected_plot:
 		return
@@ -141,3 +138,9 @@ func find_desirable_plot():
 	if plots[index].claimed():
 		return find_desirable_plot()
 	return plots[index]
+
+func evaluate_score():
+	var score = 0
+	for plot in claimed:
+		score += plot.evaluate_score()
+	return score
