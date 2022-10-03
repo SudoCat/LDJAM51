@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/base_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/HandUI.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://ui/Bottom.png" type="Texture" id=17]
 [ext_resource path="res://styles/big_box_boi.tres" type="StyleBox" id=18]
 [ext_resource path="res://ui/Text box low.png" type="Texture" id=19]
+[ext_resource path="res://logo.png" type="Texture" id=20]
 
 [sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 17 )
@@ -28,6 +29,7 @@ region_rect = Rect2( 0, 0, 1920, 1080 )
 
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 374, 1080 )
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 15 )
@@ -118,6 +120,10 @@ margin_top = 5.0
 margin_right = 214.0
 margin_bottom = 88.0
 theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.353821, 0.348145, 0.484375, 1 )
+custom_colors/font_color_shadow = Color( 0.72549, 0.698039, 0.776471, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 3
 text = "Day 1"
 align = 1
 valign = 1
@@ -215,7 +221,7 @@ margin_top = 54.0
 margin_right = 586.0
 margin_bottom = 120.0
 theme = ExtResource( 1 )
-custom_colors/font_color = Color( 0.276093, 0.281822, 0.324219, 1 )
+custom_colors/font_color = Color( 0.27451, 0.282353, 0.32549, 1 )
 custom_fonts/font = ExtResource( 14 )
 text = "Who joins you on the council?"
 
@@ -260,3 +266,9 @@ You are called, by lottery, from somewhen else, to serve upon the council, to he
 
 (WE LAY OUR FOUNDATIONS IN ASH OR BLOOD OR SHATTERED TIME BUT WE LAY THEM ALL THE SAME) "
 autowrap = true
+
+[node name="Logo" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 20 )

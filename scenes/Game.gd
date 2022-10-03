@@ -78,9 +78,15 @@ func _ready():
 	first_district_name = district_names[randi() % district_names.size()]
 	$Interface/Intro.text = intro_text.format({ "district_name": first_district_name, "city_name": city_name })
 	$Tween.interpolate_property(
+		$Interface/Logo, "modulate:a",
+		1, 0,
+		0.5, Tween.TRANS_LINEAR, Tween.EASE_IN, 2.5
+	)
+	$Tween.interpolate_callback($Interface/Logo, 3, "hide")
+	$Tween.interpolate_property(
 		$Interface/Intro, "modulate:a",
 		0, 1,
-		1, Tween.TRANS_LINEAR, Tween.EASE_IN
+		1, Tween.TRANS_LINEAR, Tween.EASE_IN, 3
 	)
 	$Tween.start()
 	
