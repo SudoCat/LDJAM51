@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/base_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/HandUI.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Crimson_Text/crimson_semibold.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scenes/ActorListUI.gd" type="Script" id=4]
 [ext_resource path="res://assets/fonts/Crimson_Text/CrimsonText-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenes/CouncillorSelect.gd" type="Script" id=6]
+[ext_resource path="res://scenes/CouncillorButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://councillors/councilor3.tres" type="Resource" id=8]
+[ext_resource path="res://councillors/councilor2.tres" type="Resource" id=9]
+[ext_resource path="res://councillors/councilor4.tres" type="Resource" id=10]
+[ext_resource path="res://councillors/councilor1.tres" type="Resource" id=11]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.713726, 0.580392, 0.482353, 1 )
@@ -26,6 +32,7 @@ mouse_filter = 2
 [node name="HandUI" type="Panel" parent="."]
 margin_right = 290.0
 margin_bottom = 1080.0
+theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="VFlowContainer" type="VFlowContainer" parent="HandUI"]
@@ -36,11 +43,14 @@ margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
 
+[node name="Tween" type="Tween" parent="HandUI"]
+
 [node name="Timer" type="Panel" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -220.0
 margin_bottom = 140.0
+theme = ExtResource( 1 )
 
 [node name="DayCount" type="Label" parent="Timer"]
 margin_left = 31.0
@@ -74,6 +84,7 @@ margin_left = 288.0
 margin_top = 765.0
 margin_right = 1919.0
 margin_bottom = 902.0
+theme = ExtResource( 1 )
 custom_styles/panel = SubResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="District_End"]
@@ -100,3 +111,29 @@ theme = SubResource( 1 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "Have at it Chris, Lorem ipsum set demet lalalalallalalalal"
 scroll_active = false
+
+[node name="CouncillorSelect" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.4
+margin_left = -320.0
+margin_top = -240.0
+margin_right = 320.0
+margin_bottom = 240.0
+rect_pivot_offset = Vector2( 320, 240 )
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+councillors = [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ]
+button_resource = ExtResource( 7 )
+
+[node name="GridContainer" type="GridContainer" parent="CouncillorSelect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = -30.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 20
+columns = 3

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Councilor4.jpg-9f7fcc470ed77b9e33d8c0a7608f270d.stex"
+path="res://.import/Councilor4.jpg-75df9405c8b69e3155b2cd059dabb4a9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/originals/Councilor4.jpg"
-dest_files=[ "res://.import/Councilor4.jpg-9f7fcc470ed77b9e33d8c0a7608f270d.stex" ]
+source_file="res://councillors/originals/Councilor4.jpg"
+dest_files=[ "res://.import/Councilor4.jpg-75df9405c8b69e3155b2cd059dabb4a9.stex" ]
 
 [params]
 
