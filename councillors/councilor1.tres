@@ -7,15 +7,15 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Councilor No.1"
-description = ""
+name = "The Marketeer"
+description = "The Marketeer, there aren’t many capitalists left in this age, but in a world always full of new ideas, uncontrollable growth, and unwieldy novelty theres always someone willing to put a pricetag on horror and sell it back to you."
 image = ExtResource( 2 )
 hoarding = ExtResource( 4 )
 deck = ExtResource( 3 )
 talkativeness = 0.0
 plot_color = Color( 0.113725, 0.486275, 0.321569, 1 )
 opposition = "res://councillors/councilor2.tres"
-claim_barks = [ "sdasdasd" ]
-build_barks = [  ]
-win_barks = [  ]
-lose_barks = [  ]
+claim_barks = [ "Just you wait", "Prospects look good", "Fortunate..", "Hah, free real estate", "Leaving money on the table" ]
+build_barks = [ "Open for buisness", "It's a right-off anyway", "Could always squeeze more out", "They'll love this", "Back in the black" ]
+win_barks = [ "Slick taglines presented in voices from a host of synthetic-angels fill the air, gleaming ad-sigils draw the eye inescapably to the newest shocking colour swirl claiming to be a blended juice of newly discovered fruits. The New is here, and it will be again tomorrow, and in a week todays New will be refreshed and mixed back into the culture, {district_name} roils with commerce and and barren innovation, an unassailable pleasure on the Marketeers face." ]
+lose_barks = [ "aaa" ]
