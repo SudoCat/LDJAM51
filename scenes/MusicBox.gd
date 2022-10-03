@@ -3,6 +3,8 @@ extends Node
 var current_track = -1
 
 func play_track(index: int):
+	if index > get_child_count():
+		return
 	var offset = 0;
 	if current_track != -1:
 		var player = get_player(current_track)
