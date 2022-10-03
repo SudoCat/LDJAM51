@@ -9,9 +9,7 @@ export(bool) var show_only_details = false
 func set_card(p_card: Card):
 	card = p_card
 	$Image.texture = card.card_image
-	$Info/VFlowContainer/RichTextLabel.text = ""
-	for effect in card.effects:
-		$Info/VFlowContainer/RichTextLabel.text += effect.description + "\n"
+	$Info/VFlowContainer/Description.text = card.description
 	if show_only_details:
 		$Info.show_behind_parent = false
 		$Info.show()
@@ -45,8 +43,8 @@ func open_details(delay = 0):
 	show_details = true
 	$Info.show()
 	$Tween.interpolate_property(
-		$Info, "rect_position:x",
-		$Info.rect_position.x, 250, 
+		$Info, "modulate:a",
+		0, 1, 
 		0.15, $Tween.TRANS_CIRC, $Tween.EASE_IN_OUT, delay
 	)
 	$Tween.start()
@@ -54,8 +52,8 @@ func open_details(delay = 0):
 func close_details():
 	show_details = false
 	$Tween.interpolate_property(
-		$Info, "rect_position:x",
-		$Info.rect_position.x, 0, 
+		$Info, "modulate:a",
+		1, 0,
 		0.15, $Tween.TRANS_CIRC, $Tween.EASE_IN_OUT
 	)
 	$Tween.interpolate_callback($Info, 0.15, "hide")

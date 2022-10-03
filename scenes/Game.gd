@@ -128,6 +128,14 @@ func start_new_round():
 	round_active = true
 	current_round += 1
 	$MusicBox.play_track(current_round)
+	$Interface/CouncillorJoined/Message.text = players.back().actor.description
+	$Interface/CouncillorJoined.show()
+	$Tween.interpolate_property(
+		$Interface/CouncillorJoined, "modulate:a",
+		1, 0,
+		0.3, $Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 5
+	)
+	$Tween.start()
 
 func add_district(d_name, position, build = true):
 	var instance = district_scene.instance()
@@ -185,11 +193,21 @@ func _process(delta):
 		$Interface/Timer/DayCount.text = str('Day ', floor(time_since_start))
 
 func end_round():
-	if available_districts.empty():
-		$Interface/Game_End.show()	
-	else:
-		$Interface/District_End.show()
 	show_scores()
+	var highscore = scores.max()
+	if scores[0] == highscore:
+		# player won
+		$Interface/District_End/Message.text = player.actor.win_barks[current_round]
+	else:
+		$Interface/District_End/Message.text = player.actor.lose_barks[current_round]
+	var highest_non_player = -1
+	for i in scores.size():
+		if i == 0:
+			continue
+		if highest_non_player == -1 || scores[i] > scores[highest_non_player]:
+			highest_non_player = i
+	$Interface/District_End/Message.text += "\n\n" + players[highest_non_player].actor.win_barks[current_round]
+	$Interface/District_End.show()
 	hand.disable()
 	round_active = false
 	player.remove_card_preview()
