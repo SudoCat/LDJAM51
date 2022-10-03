@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://councillors/councilor3.tres" type="Resource" id=2]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=3]
@@ -6,6 +6,13 @@
 [ext_resource path="res://councillors/councilor4.tres" type="Resource" id=5]
 [ext_resource path="res://councillors/councilor2.tres" type="Resource" id=6]
 [ext_resource path="res://councillors/councilor1.tres" type="Resource" id=7]
+[ext_resource path="res://music/City final 3a.wav" type="AudioStream" id=8]
+[ext_resource path="res://music/City final 2a.wav" type="AudioStream" id=9]
+[ext_resource path="res://music/City final 1a.wav" type="AudioStream" id=13]
+[ext_resource path="res://music/City final 4a.wav" type="AudioStream" id=14]
+[ext_resource path="res://music/City final 5a.wav" type="AudioStream" id=16]
+[ext_resource path="res://music/City final 6a.wav" type="AudioStream" id=17]
+[ext_resource path="res://scenes/MusicBox.gd" type="Script" id=19]
 
 [sub_resource type="ProceduralSky" id=3]
 
@@ -45,3 +52,24 @@ mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="MusicBox" type="Node" parent="."]
+script = ExtResource( 19 )
+
+[node name="Gameplay1" type="AudioStreamPlayer" parent="MusicBox"]
+stream = ExtResource( 13 )
+
+[node name="Gameplay2" type="AudioStreamPlayer" parent="MusicBox"]
+stream = ExtResource( 9 )
+
+[node name="Gameplay3" type="AudioStreamPlayer" parent="MusicBox"]
+stream = ExtResource( 8 )
+
+[node name="Gameplay4" type="AudioStreamPlayer" parent="MusicBox"]
+stream = ExtResource( 14 )
+
+[node name="Gameplay5" type="AudioStreamPlayer" parent="MusicBox"]
+stream = ExtResource( 16 )
+
+[node name="Gameplay6" type="AudioStreamPlayer" parent="MusicBox"]
+stream = ExtResource( 17 )

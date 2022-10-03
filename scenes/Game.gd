@@ -16,6 +16,7 @@ var actor_list
 var can_pan = false
 var round_active = false
 var edge_size = 15;
+var current_round = 0
 
 var player_scene = load("res://scenes/Player.tscn")
 var district_scene = load("res://scenes/District.tscn")
@@ -84,6 +85,7 @@ func start(councillor):
 	available_actors.erase(councillor)
 	available_actors.erase(opposition)
 	round_active = true
+	$MusicBox.play_track(0)
 
 func _on_NextDistrict_pressed():
 	start_new_round()
@@ -99,6 +101,8 @@ func start_new_round():
 	hide_scores()
 	hand.enable()
 	round_active = true
+	current_round += 1
+	$MusicBox.play_track(current_round)
 
 func add_district(position):
 	var instance = district_scene.instance()

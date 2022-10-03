@@ -1,7 +1,10 @@
 extends Button
 
 func _ready():
-	connect("pressed", self, "_on_Self_pressed")
+	if name == "NextDistrict":
+		connect("pressed", get_node("/root/Game"), "_on_NextDistrict_pressed")
+	elif name == "Quit":
+		connect("pressed", self, "_on_Self_pressed")
 
 func _on_Self_pressed():
 	var credits = get_node("../../Credits")
