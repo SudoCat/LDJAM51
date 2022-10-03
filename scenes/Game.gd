@@ -13,6 +13,7 @@ var current_district
 var interface
 var actor_list
 var can_pan = false
+var game_started = false
 
 var player_scene = load("res://scenes/Player.tscn")
 
@@ -21,7 +22,6 @@ func _ready():
 	actor_list = get_node("Interface/ActorListUI")
 	current_district = $District
 	prepare()
-	start()
 	
 func _notification(what):
 	match what:
@@ -30,26 +30,28 @@ func _notification(what):
 		NOTIFICATION_WM_MOUSE_ENTER:
 			can_pan = true
 	
-func start():
+func start(councillor):
 	can_pan = true
-	player = add_player(true)
-	add_player(false)
-	add_player(false)
-	add_player(false)
+	game_started = true
+	player = add_player(councillor, true)
+	add_player(councillor.get_opposition(), false)
+	$Interface/CouncillorSelect.hide()
 
 func prepare():
 	available_actors = all_actors.duplicate()
 	randomize()
 	available_actors.shuffle()
 	
-func add_player(is_human):
+func get_random_actor():
+	return available_actors.pop_back()
+	
+func add_player(councillor, is_human):
 	var instance = player_scene.instance()
 	instance.is_human = is_human
 	if is_human:
 		instance.connect("use_card", hand, "_on_Player_use_card")
 		instance.connect("draw_card", hand, "_on_Player_draw_card")
-	var actor = available_actors.pop_back()
-	instance.set_actor(actor)
+	instance.set_actor(councillor)
 	players.append(instance)
 	add_child(instance)
 	actor_list.add(instance)
@@ -61,6 +63,8 @@ var edge_size = 10;
 
 func _process(delta):
 	move_viewport()
+	if !game_started:
+		return
 	if current_district.full:
 		set_process(false)
 		$Interface/District_End.show()

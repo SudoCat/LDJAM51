@@ -72,7 +72,7 @@ func focus():
 
 func show_preview_building():
 	var player: Player = game.player
-	if player.preview_building:
+	if player && player.preview_building:
 		$PreviewSlot.remote_path = player.get_node("Preview").get_path()
 		anchor_building_to_plot(player.preview_building)
 

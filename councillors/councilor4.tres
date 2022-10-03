@@ -2,11 +2,13 @@
 
 [ext_resource path="res://resource_types/actor.gd" type="Script" id=1]
 [ext_resource path="res://decks/basic.tres" type="Resource" id=2]
-[ext_resource path="res://actors/councilor4.png" type="Texture" id=3]
+[ext_resource path="res://councillors/originals/Councilor4.jpg" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 1 )
 name = "Councilor No.4"
+description = ""
 image = ExtResource( 3 )
 deck = ExtResource( 2 )
 plot_color = Color( 0.0862745, 0.290196, 0.388235, 1 )
+opposition = "res://councillors/councilor1.tres"
