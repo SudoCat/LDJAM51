@@ -3,7 +3,7 @@
 [ext_resource path="res://resource_types/deck.gd" type="Script" id=1]
 [ext_resource path="res://cards/residential_city.tres" type="Resource" id=2]
 [ext_resource path="res://cards/church.tres" type="Resource" id=3]
-[ext_resource path="res://cards/open_air_market.tres" type="Resource" id=4]
+[ext_resource path="res://cards/trash_incinerator.tres" type="Resource" id=4]
 [ext_resource path="res://cards/temple.tres" type="Resource" id=5]
 
 [resource]
