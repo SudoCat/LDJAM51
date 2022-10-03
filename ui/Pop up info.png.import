@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Church.png-224379a4128e7d89868d4c8cf687cc19.stex"
+path="res://.import/Pop up info.png-5dbdb2fc9e269f570a364b5067cada36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/Church.png"
-dest_files=[ "res://.import/Church.png-224379a4128e7d89868d4c8cf687cc19.stex" ]
+source_file="res://ui/Pop up info.png"
+dest_files=[ "res://.import/Pop up info.png-5dbdb2fc9e269f570a364b5067cada36.stex" ]
 
 [params]
 

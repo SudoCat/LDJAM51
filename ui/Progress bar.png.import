@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Church.png-224379a4128e7d89868d4c8cf687cc19.stex"
+path="res://.import/Progress bar.png-8387bbb87c460589d5d9db3059e90bb7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cards/Church.png"
-dest_files=[ "res://.import/Church.png-224379a4128e7d89868d4c8cf687cc19.stex" ]
+source_file="res://ui/Progress bar.png"
+dest_files=[ "res://.import/Progress bar.png-8387bbb87c460589d5d9db3059e90bb7.stex" ]
 
 [params]
 

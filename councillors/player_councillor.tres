@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://resource_types/actor.gd" type="Script" id=1]
+[ext_resource path="res://councillors/originals/player_councillor.jpg" type="Texture" id=2]
+[ext_resource path="res://decks/basic.tres" type="Resource" id=3]
+[ext_resource path="res://cards/char.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Machine"
+description = "woop"
+image = ExtResource( 2 )
+hoarding = ExtResource( 4 )
+deck = ExtResource( 3 )
+talkativeness = 0.2
+plot_color = Color( 0.792157, 0.345098, 0.345098, 1 )
+opposition = ""
+claim_barks = [  ]
+build_barks = [  ]
+win_barks = [  ]
+lose_barks = [  ]

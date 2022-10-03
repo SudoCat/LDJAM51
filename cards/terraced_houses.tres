@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource( 1 )
 name = ""
+description = ""
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
 effects = [  ]
