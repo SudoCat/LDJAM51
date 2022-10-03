@@ -7,15 +7,15 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Councilor No.4"
-description = ""
+name = "The Skateboarder"
+description = "The Skateboarder, gregarious, careful, and caring, a concerned citizen driven to aid, and buoyed by a proud base of popular support and a faith in that which is undeniably real, and undeniably not here with us, but close, maybe even close enough to offer salvation."
 image = ExtResource( 3 )
 hoarding = ExtResource( 4 )
 deck = ExtResource( 2 )
 talkativeness = 0.0
 plot_color = Color( 0.0862745, 0.290196, 0.388235, 1 )
 opposition = "res://councillors/councilor1.tres"
-claim_barks = [  ]
-build_barks = [  ]
-win_barks = [  ]
-lose_barks = [  ]
+claim_barks = [ "Yeah yeah yeah!", "Word", "I think, yeah", "Well alright" ]
+build_barks = [ "One more thing done", "Yeah, it's coming together", "Wow, already?", "Phew!", "Gnarlys" ]
+win_barks = [ "A wreath of 3.5mm aux cables braided together with the mottled purple-red leaves of the Lesser Singing Vine is hung over the Beetles neck and shoulders, its purpose and meaning an enigma to all but the initiated, but the air buzzes with joy and becoming. In accordance with the Hums Mysteries no priest has been seen in {district_name} but their presences is felt, making sure resources are driven to good works, and just institutions. All to keep the Hums dread aspect, the Drone, from becoming invoked." ]
+lose_barks = [ "ddd" ]

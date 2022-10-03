@@ -7,15 +7,15 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Councilor No.3"
-description = ""
+name = "The Ornithophile"
+description = "The Ornithophile, short on favours, low on trust, and rich in guile; for some the dawn of a new epoch is nothing if not new chances, new moves to make, and new positions to secure, but such thinking often leaves plenty of victims in its wake."
 image = ExtResource( 2 )
 hoarding = ExtResource( 4 )
 deck = ExtResource( 3 )
 talkativeness = 0.0
 plot_color = Color( 0.341176, 0.254902, 0.32549, 1 )
 opposition = "res://councillors/councilor4.tres"
-claim_barks = [  ]
-build_barks = [  ]
-win_barks = [  ]
-lose_barks = [  ]
+claim_barks = [ "Bird says go here, I go here", "It's Charli baby!", "Mhmmhmm", "Vivacious!", "ehehe" ]
+build_barks = [ "Delicious!", "Now we're talking!", "*Excited Chirping*", "Oh, killer!" ]
+win_barks = [ "With much pomp and chaos we find the Ornithophile atop a float in the shape of a great anatomical human heart, his adored Lovebirds run rampant over the district, the sounds of raucous and unskilled musicians echoing from houses, and public gardens. Wheat-paste and band logos seemingly keeping the whole of {district_name} aloft. A rowdy paradise for the new world." ]
+lose_barks = [ "ccc" ]
