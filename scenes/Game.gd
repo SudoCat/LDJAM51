@@ -154,7 +154,10 @@ func _process(delta):
 		$Interface/Timer/DayCount.text = str('Day ', floor(time_since_start))
 
 func end_round():
-	$Interface/District_End.show()
+	if available_districts.empty():
+		$Interface/Game_End.show()	
+	else:
+		$Interface/District_End.show()
 	show_scores()
 	hand.disable()
 	round_active = false
