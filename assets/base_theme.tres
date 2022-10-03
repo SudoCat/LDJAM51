@@ -6,5 +6,6 @@
 [resource]
 /fonts/MainText = ExtResource( 2 )
 /styles/Label = null
+HFlowContainer/constants/hseparation = 20
 Label/fonts/font = ExtResource( 2 )
 RichTextLabel/fonts/normal_font = ExtResource( 1 )

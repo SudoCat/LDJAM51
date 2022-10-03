@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 func set_score(score, is_highscore):
@@ -7,3 +7,6 @@ func set_score(score, is_highscore):
 	
 	if is_highscore:
 		$WinnerGetsTheCrown.show()
+
+func set_turn_time(time):
+	$ProgressBar.value = time
