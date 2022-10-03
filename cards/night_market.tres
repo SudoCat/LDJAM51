@@ -20,5 +20,5 @@ description = ""
 card_image = ExtResource( 2 )
 building = ExtResource( 3 )
 effects = [ SubResource( 1 ) ]
-tags = [ "magic" ]
+tags = [ "magic", "shop" ]
 base_points = 5
