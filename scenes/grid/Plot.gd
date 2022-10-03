@@ -31,11 +31,9 @@ func get_xform_aabb():
 	return $grass.transform.xform($grass/tmpParent/grass.get_aabb())
 
 func _on_Body_mouse_entered():
-	print("enter" + name)
 	focus()
 	
 func _on_Body_mouse_exited():
-	print("exit" + name)
 	blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):
