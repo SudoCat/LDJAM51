@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/base_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/HandUI.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://styles/big_box_boi.tres" type="StyleBox" id=18]
 [ext_resource path="res://ui/Text box low.png" type="Texture" id=19]
 [ext_resource path="res://logo.png" type="Texture" id=20]
+[ext_resource path="res://noise.png" type="Texture" id=21]
 
 [sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 17 )
@@ -64,6 +65,15 @@ font_data = ExtResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+
+[node name="NOISE" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.352941 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 21 )
+expand = true
+stretch_mode = 5
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
