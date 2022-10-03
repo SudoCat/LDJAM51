@@ -21,7 +21,6 @@ description = ""
 side_a_related_tags = [ "temple 2" ]
 side_b_related_tags = [ "temple 1" ]
 points = -4
-tile_area_of_affect = 0
 
 [resource]
 script = ExtResource( 1 )

@@ -50,6 +50,12 @@ rect_min_size = Vector2( 496, 304 )
 mouse_filter = 2
 custom_styles/panel = SubResource( 2 )
 
+[node name="TextureRect" type="TextureRect" parent="Info"]
+margin_right = 496.0
+margin_bottom = 304.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+
 [node name="VFlowContainer" type="VFlowContainer" parent="Info"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -65,11 +71,5 @@ margin_bottom = 220.0
 rect_min_size = Vector2( 160, 220 )
 mouse_filter = 2
 theme = ExtResource( 6 )
-
-[node name="TextureRect" type="TextureRect" parent="Info"]
-margin_right = 40.0
-margin_bottom = 40.0
-mouse_filter = 2
-texture = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
