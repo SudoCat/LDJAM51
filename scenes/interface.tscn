@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/base_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/HandUI.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Crimson_Text/crimson_semibold.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scenes/ActorListUI.gd" type="Script" id=4]
+[ext_resource path="res://assets/fonts/Crimson_Text/CrimsonText-Regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.713726, 0.580392, 0.482353, 1 )
 
 [sub_resource type="Theme" id=1]
 /fonts/MainText = ExtResource( 3 )
 /styles/Label = null
 RichTextLabel/fonts/normal_font = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 5 )
 
 [node name="Interface" type="Control"]
 anchor_right = 1.0
@@ -45,7 +53,7 @@ align = 1
 valign = 1
 
 [node name="ActorListUI" type="Panel" parent="."]
-margin_left = 360.0
+margin_left = 289.0
 margin_top = 900.0
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -61,17 +69,33 @@ margin_bottom = -20.0
 
 [node name="District_End" type="Panel" parent="."]
 visible = false
-margin_left = 694.0
-margin_top = 317.0
-margin_right = 1431.0
-margin_bottom = 513.0
+margin_left = 288.0
+margin_top = 765.0
+margin_right = 1919.0
+margin_bottom = 902.0
+custom_styles/panel = SubResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="District_End"]
 anchor_right = 0.054
 anchor_bottom = 0.102
-margin_left = 264.0
-margin_top = 86.0
-margin_right = 345.202
-margin_bottom = 96.008
+margin_left = 39.0
+margin_top = 31.0
+margin_right = 794.926
+margin_bottom = 51.026
+rect_pivot_offset = Vector2( 356, 17 )
 theme = SubResource( 1 )
-text = "District Full!"
+text = "Forked Rise District is now full."
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="District_End"]
+anchor_right = 0.054
+anchor_bottom = 0.102
+margin_left = 38.0
+margin_top = 69.0
+margin_right = 793.926
+margin_bottom = 89.026
+rect_pivot_offset = Vector2( 356, 17 )
+theme = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "Have at it Chris, Lorem ipsum set demet lalalalallalalalal"
+scroll_active = false

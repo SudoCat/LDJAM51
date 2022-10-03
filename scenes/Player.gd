@@ -13,6 +13,7 @@ var current_turn_time = 0
 var hand: Array
 var preview_building: Spatial
 var claimed: Array
+var avatar_ui
 onready var game = get_node("/root/Game")
 
 var brain_think_delay = 0
@@ -138,6 +139,11 @@ func find_desirable_plot():
 	if plots[index].claimed():
 		return find_desirable_plot()
 	return plots[index]
+	
+func show_score(highscore):
+	var score = evaluate_score()
+	var is_highscore = score == highscore
+	avatar_ui.set_score(score, is_highscore)
 
 func evaluate_score():
 	var score = 0

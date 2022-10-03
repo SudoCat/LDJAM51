@@ -1,9 +1,6 @@
 extends Spatial
 class_name Game
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var players = []
 var player
 var hand
@@ -44,7 +41,7 @@ func add_player(is_human):
 	instance.set_actor(actor)
 	players.append(instance)
 	add_child(instance)
-	actor_list.add(instance.actor)
+	actor_list.add(instance)
 	for i in players.size():
 		players[i].set_offset(10.0 / players.size() * i)
 	return instance
@@ -54,14 +51,21 @@ var edge_size = 10;
 func _process(delta):
 	move_viewport()
 	if current_district.full:
-		$Interface/District_End.show()
-		for player in players:
-			print(player.evaluate_score())
 		set_process(false)
+		$Interface/District_End.show()
+		show_scores()
 	else:
 		# Game loop
 		time_since_start += delta
 		$Interface/Timer/DayCount.text = str('Day ', floor(time_since_start))
+
+func show_scores():
+	var scores = []
+	for player in players:
+		scores.append( player.evaluate_score())
+	var highscore = scores.max()
+	for player in players:
+		player.show_score(highscore)
 	
 func move_viewport():
 	var pos = get_viewport().get_mouse_position()
