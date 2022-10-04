@@ -201,11 +201,12 @@ func _process(delta):
 func end_round():
 	show_scores()
 	var highscore = scores.max()
+	var text = ""
 	if scores[0] == highscore:
 		# player won
-		$Interface/District_End/Message.text = player.actor.win_barks[min(current_round, player.actor.lose_barks.size() - 1)]
+		text = player.actor.win_barks[min(current_round, player.actor.lose_barks.size() - 1)]
 	else:
-		$Interface/District_End/Message.text = player.actor.lose_barks[min(current_round, player.actor.lose_barks.size() - 1)]
+		text = player.actor.lose_barks[min(current_round, player.actor.lose_barks.size() - 1)]
 	var highest_non_player = -1
 	for i in scores.size():
 		if i == 0:
@@ -213,9 +214,9 @@ func end_round():
 		if highest_non_player == -1 || scores[i] > scores[highest_non_player]:
 			highest_non_player = i
 	var runner_up = players[highest_non_player]
-	$Interface/District_End/Message.text += "\n\n" + runner_up.actor.win_barks[current_round % runner_up.actor.win_barks.size()]
+	text += "\n\n" + runner_up.actor.win_barks[current_round % runner_up.actor.win_barks.size()]
 	
-	$Interface/District_End/Message.text.format({ "district_name": current_district.district_name, "city_name": city_name, "winning_councillor": runner_up })
+	$Interface/District_End/Message.text = text.format({ "district_name": current_district.district_name, "city_name": city_name, "winning_councillor": runner_up })
 	$Interface/District_End.show()
 	hand.disable()
 	round_active = false

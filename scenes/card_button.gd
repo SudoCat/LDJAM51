@@ -21,8 +21,13 @@ func set_card(p_card: Card):
 func toggle(is_disabled):
 	disabled = is_disabled
 	if is_disabled:
-		close_details()
+		#close_details()
 		set_pressed_no_signal(false)
+		self_modulate = Color(0.8, 0.8, 0.8, 1)
+		$Border.self_modulate = Color(0.8, 0.8, 0.8, 1)
+	else:
+		self_modulate = Color.white
+		$Border.self_modulate = Color.white
 
 func _on_Self_toggle(pressed):
 	if pressed:

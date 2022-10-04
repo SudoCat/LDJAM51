@@ -14,14 +14,14 @@ func set_score(score, is_highscore):
 	prev_score = score
 	
 	if is_highscore:
-		$WinnerGetsTheCrown.show()
+		$Rosette.show()
 		
 func tally_score(score):
 	$Score/Label.text = str(round(score))
 
 func hide_score():
 	$Score.hide()
-	$WinnerGetsTheCrown.hide()
+	$Rosette.hide()
 
 func set_turn_time(time):
 	$ProgressBar.value = time
