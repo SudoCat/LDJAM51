@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://test_grid_generation.gd" type="Script" id=1]
+[ext_resource path="res://assets/grid/kenney_hexagonkit_1/Models/GLTF format/sand.glb" type="PackedScene" id=2]
+[ext_resource path="res://scenes/grid/Plot.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ProceduralSky" id=3]
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 3 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+
+[node name="Test" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Spatial" type="Spatial" parent="."]
+visible = false
+
+[node name="Plot3" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.733 )
+
+[node name="Plot4" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
+[node name="Plot5" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.733 )
+
+[node name="Plot6" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.733 )
+
+[node name="Plot7" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+
+[node name="Plot" parent="Spatial" instance=ExtResource( 3 )]
+
+[node name="sand" parent="Spatial" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, 1.733 )
+
+[node name="sand2" parent="Spatial" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0212555, 0, 3.45537 )
+
+[node name="Spatial2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.93 )
+visible = false
+
+[node name="Plot3" parent="Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.733 )
+
+[node name="Plot4" parent="Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
+[node name="Plot5" parent="Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.733 )
+
+[node name="Plot6" parent="Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.733 )
+
+[node name="Plot7" parent="Spatial2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+
+[node name="Plot" parent="Spatial2" instance=ExtResource( 3 )]
+
+[node name="sand" parent="Spatial2" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, 1.733 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -10, 15, -10 )
+environment = SubResource( 4 )
+current = true
+fov = 50.0
+size = 10.0

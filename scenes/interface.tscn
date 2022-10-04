@@ -278,7 +278,6 @@ You are called, by lottery, from somewhen else, to serve upon the council, to he
 autowrap = true
 
 [node name="Logo" type="TextureRect" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 20 )

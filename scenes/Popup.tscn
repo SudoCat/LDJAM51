@@ -6,6 +6,11 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
+outline_size = 1
+outline_color = Color( 0.65098, 0.596078, 0.921569, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = -3
 font_data = ExtResource( 3 )
 
 [node name="Popup" type="Control"]
@@ -18,11 +23,14 @@ margin_bottom = 178.0
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 106.0
-margin_top = 87.0
-margin_right = 301.0
-margin_bottom = 300.0
+margin_left = 102.0
+margin_top = 71.0
+margin_right = 297.0
+margin_bottom = 283.0
 rect_min_size = Vector2( 180, 200 )
 theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.13533, 0.121872, 0.191406, 1 )
+custom_constants/line_spacing = -4
 custom_fonts/font = SubResource( 1 )
-text = "I may be cute"
+valign = 1
+autowrap = true

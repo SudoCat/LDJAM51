@@ -38,7 +38,7 @@ func _on_Body_mouse_exited():
 	blur()
 
 func _on_Body_input_event(camera, event, position, normal, shape_idx):
-	if !game.round_active || district != game.current_district || claimed():
+	if !game || !game.round_active || district != game.current_district || claimed():
 		return
 	if event is InputEventMouseButton:
 		if event.pressed:
@@ -72,6 +72,8 @@ func focus():
 	is_focused = true
 
 func show_preview_building():
+	if !game:
+		return
 	var player: Player = game.player
 	if player && player.preview_building:
 		$PreviewSlot.remote_path = player.get_node("Preview").get_path()
@@ -103,6 +105,8 @@ func blur():
 	is_focused = false
 
 func hide_preview_building():
+	if !game:
+		return
 	$PreviewSlot.remote_path = ""
 	var player: Player = game.player
 	if player && player.preview_building:
@@ -140,7 +144,8 @@ func claim(player, card):
 
 func set_card(card: Card):
 	placed_card = card
-	$"Viewport/Popup/Label".text = card.description
+	$CardPreview/Label3D.text = card.description
+	#$Viewport/Popup/Label.text = card.description
 
 func build(card: Card):
 	set_card(card)

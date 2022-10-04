@@ -71,7 +71,6 @@ func _ready():
 		Input.set_custom_mouse_cursor(cursor)
 	hand = get_node("Interface/HandUI")
 	actor_list = get_node("Interface/ActorListUI")
-	current_district = $District
 	
 	prepare()
 	city_name = city_names[randi() % city_names.size()]
@@ -112,6 +111,7 @@ func start(councillor):
 	available_actors.erase(opposition)
 	round_active = true
 	$MusicBox.play_track(0)
+	print("start")
 
 func _on_NextDistrict_pressed():
 	if available_districts.size() == 0:
@@ -120,7 +120,6 @@ func _on_NextDistrict_pressed():
 		start_new_round()
 	
 func start_new_round():
-	var size = current_district.get_size()
 	var key = available_districts[randi() % available_districts.size()]
 	available_districts.erase(key)
 	var position = districts["center"].district.get_neighbour_start(districts[key].index)
@@ -142,6 +141,7 @@ func start_new_round():
 		0.3, $Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 5
 	)
 	$Tween.start()
+	print("new round")
 
 func add_district(d_name, position, build = true):
 	var instance = district_scene.instance()
@@ -151,7 +151,7 @@ func add_district(d_name, position, build = true):
 	if build:
 		current_district.build()
 	current_district.transform.origin = position
-	var camera_pos = current_district.transform.origin + Vector3(-3, 13, -7)
+	var camera_pos = current_district.transform.origin + Vector3(-11, 13, -12)
 	$Tween.interpolate_property(
 		$Camera, "translation",
 		$Camera.translation, camera_pos,
@@ -203,16 +203,19 @@ func end_round():
 	var highscore = scores.max()
 	if scores[0] == highscore:
 		# player won
-		$Interface/District_End/Message.text = player.actor.win_barks[current_round]
+		$Interface/District_End/Message.text = player.actor.win_barks[min(current_round, player.actor.lose_barks.size() - 1)]
 	else:
-		$Interface/District_End/Message.text = player.actor.lose_barks[current_round]
+		$Interface/District_End/Message.text = player.actor.lose_barks[min(current_round, player.actor.lose_barks.size() - 1)]
 	var highest_non_player = -1
 	for i in scores.size():
 		if i == 0:
 			continue
 		if highest_non_player == -1 || scores[i] > scores[highest_non_player]:
 			highest_non_player = i
-	$Interface/District_End/Message.text += "\n\n" + players[highest_non_player].actor.win_barks[current_round]
+	var runner_up = players[highest_non_player]
+	$Interface/District_End/Message.text += "\n\n" + runner_up.actor.win_barks[current_round % runner_up.actor.win_barks.size()]
+	
+	$Interface/District_End/Message.text.format({ "district_name": current_district.district_name, "city_name": city_name, "winning_councillor": runner_up })
 	$Interface/District_End.show()
 	hand.disable()
 	round_active = false
@@ -251,7 +254,3 @@ func move_viewport():
 	elif (pos.y > get_viewport().size.y - edge_size):
 		var speed = edge_size - (get_viewport().size.y - pos.y)
 		$Camera.transform.origin += Vector3(0, 0, -distance * speed).rotated(Vector3.UP, rad)
-
-#func _input(event):
-#	if event is InputEventMouseMotion:
-#	   print("Mouse Motion at: ", event.position)
